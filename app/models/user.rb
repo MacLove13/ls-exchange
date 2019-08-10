@@ -13,4 +13,8 @@ class User < ApplicationRecord
       find(:all)
     end
   end
+
+  def quotes
+    @quotes ||= Quote.find_by(owner_id: self.id)
+  end
 end

@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_10_064041) do
-
-  create_table "actions", force: :cascade do |t|
-    t.integer "owner_id"
-    t.float "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2019_08_10_224058) do
 
   create_table "business_value_histories", force: :cascade do |t|
     t.integer "business_id"
@@ -28,6 +21,19 @@ ActiveRecord::Schema.define(version: 2019_08_10_064041) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
+    t.string "initials"
+    t.string "slogan"
+    t.integer "available_quotes"
+    t.integer "purchased_quotes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "quotes", force: :cascade do |t|
+    t.integer "owner_id"
+    t.integer "business_id"
+    t.float "purchased_value"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

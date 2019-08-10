@@ -1,49 +1,205 @@
 <body style="background-color: #EFEFEF">
   <div class="container" style="background-color: #FFFFFF">
-    
+    <div class="row">
 
-    <div class='col-xl-12' style="margin-top: 15px;">
-      <div class='col-xl-1'></div>
-      <div class='col-xl-10' style="
-        background-color: #F1F1F1; 
-        font-size: 24px; 
-        font-family: Arial, Helvetica, sans-serif;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        padding-left: 8px;
-      ">
-        <div class='col-xl-7'>
-          Ammu Nation (AMU)
+      <div class='col-md-12' style="margin-top: 15px;">
+        <div class='col-xl-1'></div>
+        <div class='col-xl-10' style="
+          background-color: #F1F1F1; 
+          font-size: 24px; 
+          font-family: Arial, Helvetica, sans-serif;
+          padding-top: 15px;
+          padding-bottom: 15px;
+          padding-left: 20px;
+        ">
+          <div class='col-xl-7'>
+            <%= @business.name %> (AMU)
+          </div>
+          <div class='col-xl-5'>
+          </div>
         </div>
-        <div class='col-xl-5'>
+        <div style="margin-top: 10px;"></div>
+        <div class='col-xl-10' style="padding-left: 20px;">
+          Protecting your rights! America's First Choice in Domestic Ordinance!
         </div>
       </div>
+
+    	<div class='col-md-12' style="margin-top: 50px;">
+        <div class='col-md-6' style="background-color: #FAFAFA; padding-bottom: 20px; padding-top: 20px;">
+            <center><b>ÚLTIMA HORA</b></center><br/>
+
+      			<%= line_chart generate_graph_date, 
+              legend: false, 
+              curve: false, 
+              prefix: "$", 
+              height: "200px", 
+              label: "Valor",
+              points: false,
+              messages: {empty: "No data"},
+              min: min_value_graph, 
+              max: max_value_graph
+      			%>
+            <center><font size="1px" >( Você pode passar o mouse sobre o gráfico para ver os valores )</font></center>
+          </div>
+          <div class='col-md-1'></div>
+          <div class='col-md-5' style='background-color: #FAFAFA; padding-bottom: 20px; padding-top: 20px;'>
+            <div class="row">
+              <div class='col-xl-12' style='background-color: #2A2A2A; color: #FFF; margin-top: -20px; padding-bottom: 2px; padding-top: 8px;'>
+                <p style='padding-left: 10px;'>Stock Information</p>
+              </div>
+            </div>
+            <div class="row" style="margin-top: 15px;">
+              <div class='col-md-4'>
+                  <%
+                      graph_hours_data = generate_grapt_five_hours_date
+
+                      variation = calculate_variation(@business.value_history)
+
+                      valuesHistory = @business.value_history.order('created_at DESC').limit(2).reverse
+                      first = valuesHistory.first
+                      last_history = valuesHistory.last
+                    %>
+                  AMU <br/>
+                  $<%= last_history.value %>
+                  <br/>
+                  <br/>
+                  Variação:
+                  <br/>
+                  <%= define_icon(@business.value_history) %> <%= variation %>
+              </div>
+              <div class='col-md-8'>
+                <font size="1px" >Informações referentes as últimas 5 horas</font>
+                <table class="table">
+                  <tbody>
+                    <tr style="background-color: #F3F3F3">
+                      <th scope="row">Maior</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>$<%= max_value_five_hours %></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Menor</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>$<%= min_value_five_hours %></td>
+                    </tr>
+                    <tr style="background-color: #F3F3F3">
+                      <th scope="row">Atual</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>$<%= last_history.value %></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Ultimo</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>$<%= first.value %></td>
+                    </tr>
+                    <tr style="background-color: #F3F3F3">
+                      <th scope="row">Variação</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>$<%= calculate_movimentation(@business.value_history).round(2) %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
+
+        <div class='col-md-12' style="margin-top: 50px;">
+          <div class='col-md-6' style="background-color: #FAFAFA; padding-bottom: 20px; padding-top: 20px;">
+            <center><b>ÚLTIMAS 5 HORAS</b></center><br/>
+
+            <%= line_chart graph_hours_data, 
+              legend: false,
+              min: min_value_five_hours_graph, 
+              max: max_value_five_hours_graph,
+              prefix: "$",
+              curve: false, 
+              points: false,
+              messages: {empty: "No data"},
+              height: "200px",
+              label: "Valor"
+              %>
+              <center><font size="1px" >( Você pode passar o mouse sobre o gráfico para ver os valores )</font></center>
+          </div>
+          <div class='col-md-1'></div>
+          <div class='col-md-5' style='background-color: #FAFAFA; padding-bottom: 20px; padding-top: 20px;'>
+            
+            <div class="row">
+              <div class='col-xl-12' style='background-color: #2A2A2A; color: #FFF; margin-top: -20px; padding-bottom: 2px; padding-top: 8px;'>
+                <p style='padding-left: 10px;'>Mercado</p>
+              </div>
+            </div>
+            <div class="row" style="margin-top: 15px;">
+              <div class='col-md-5'>
+                  <%
+                      graph_hours_data = generate_grapt_five_hours_date
+
+                      variation = calculate_variation(@business.value_history)
+
+                      valuesHistory = @business.value_history.order('created_at DESC').limit(2).reverse
+                      first = valuesHistory.first
+                      last_history = valuesHistory.last
+                    %>
+                  <b>Cotas disponíveis:</b> <br/>
+                  233 <br/><br/>
+                  <b>Valor:</b> <br/> 
+                  $<%= last_history.value %> <br/>
+                  <p style=" font-size: 2mm" >( Este valor pode sofrer alterações caso você passe muito tempo nesta tela )</p>
+
+              </div>
+              <div class='col-md-7'>
+                
+                <%= form_tag "../update_user/2" do |f| %>
+                  <div class="form-group">
+                    Quantidade a comprar:
+                    <%= number_field_tag :buy_quantity, 0, max: 100, :class => 'form-control' %>
+                  </div>
+                  <div class="actions">
+                    <%= submit_tag "Comprar", :class => 'btn btn-success float-right' %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="row">
+              <div class='col-md-12' style="width: 100%; height: 1px; background-color: #6A6A6A;"></div>
+              <div class='col-md-12' style="font-size: 12px; margin-top: 10px;">
+                Você tem x cotas desta ação. <br/>
+                Clique aqui para gerênciar suas cotas.
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <div class='col-md-12' style="margin-top: 50px;"></div>
     </div>
-
-  	<div style="margin-left: 0px; margin-right: 0px;">
-
-
-
-  	    <div style="width: 40%">
-  			<%
-  			graph_data = []
-
-  			@history.each do |business|
-
-  			  date = business.created_at.strftime("%H:%M")
-
-  			  data = []
-  			  data.push(date)
-  			  data.push(business.value)
-
-  			  graph_data.push(data)
-
-  			end %>
-
-  			<%= line_chart graph_data, legend: false, name: @business.name, data: graph_data, refresh: 10, curve: false, label: "Valor" 
-  			%>
-  		</div>
-  	</div>
-
   </div>
 </body>
