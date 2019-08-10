@@ -20,7 +20,11 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
+    <div style="min-height: 500px">
+
     <%= yield %>
+
+    </div>
 
     <%= render template: "layouts/footer.html.erb" %>
   </body>

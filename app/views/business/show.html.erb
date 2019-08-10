@@ -1,22 +1,49 @@
-<div style="margin-left: 0px; margin-right: 0px;">
+<body style="background-color: #EFEFEF">
+  <div class="container" style="background-color: #FFFFFF">
+    
 
-    <div style="width: 40%">
-		<%
-		graph_data = []
+    <div class='col-xl-12' style="margin-top: 15px;">
+      <div class='col-xl-1'></div>
+      <div class='col-xl-10' style="
+        background-color: #F1F1F1; 
+        font-size: 24px; 
+        font-family: Arial, Helvetica, sans-serif;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 8px;
+      ">
+        <div class='col-xl-7'>
+          Ammu Nation (AMU)
+        </div>
+        <div class='col-xl-5'>
+        </div>
+      </div>
+    </div>
 
-		@history.each do |business|
+  	<div style="margin-left: 0px; margin-right: 0px;">
 
-		  date = business.created_at.strftime("%H:%M")
 
-		  data = []
-		  data.push(date)
-		  data.push(business.value)
 
-		  graph_data.push(data)
+  	    <div style="width: 40%">
+  			<%
+  			graph_data = []
 
-		end %>
+  			@history.each do |business|
 
-		<%= line_chart graph_data, legend: false, name: @business.name, data: graph_data, refresh: 10, curve: false, label: "Valor" 
-		%>
-	</div>
-</div>
+  			  date = business.created_at.strftime("%H:%M")
+
+  			  data = []
+  			  data.push(date)
+  			  data.push(business.value)
+
+  			  graph_data.push(data)
+
+  			end %>
+
+  			<%= line_chart graph_data, legend: false, name: @business.name, data: graph_data, refresh: 10, curve: false, label: "Valor" 
+  			%>
+  		</div>
+  	</div>
+
+  </div>
+</body>

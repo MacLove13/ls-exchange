@@ -10,25 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_10_052051) do
+ActiveRecord::Schema.define(version: 2019_08_10_064041) do
 
   create_table "actions", force: :cascade do |t|
     t.integer "owner_id"
-    t.integer "value"
+    t.float "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "business_value_histories", force: :cascade do |t|
     t.integer "business_id"
-    t.integer "value"
+    t.float "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
-    t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,6 +40,10 @@ ActiveRecord::Schema.define(version: 2019_08_10_052051) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "money"
+    t.float "blocked_money"
+    t.string "name"
+    t.integer "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,10 +1,22 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  
+  root to: 'landing_page#index'
+
+  # business
   get 'business/:id', to: 'business#show', param: :id
+  get 'all_business/:page', to: 'business#index', only: [:index], param: :page
+
+  # Other pages
   get 'landing_page/index'
   get 'informations/index'
 
-  root to: 'landing_page#index'
+  # Admin Control
+  get '/admin/users', to: 'users#index'
+  get '/admin/find_user', to: 'users#find'
+  get '/admin/user/:id', to: 'users#show'
+  get '/admin/edit_user/:id', to: 'users#admin_edit', param: :id
+  post '/admin/update_user/:id' => 'users#update_user'
 
 end

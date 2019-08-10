@@ -1,0 +1,47 @@
+<body style="background-color: #EFEFEF;">
+<div class='container' style="background-color: #FFFFFF;">
+
+	<% if @users.size.zero? %>
+    <br/>
+		<div class="alert alert-danger text-center" role="alert">
+		  Nenhum usuário encontrado.
+		  <br/>
+		  <%= link_to 'Procurar novamente', 'find_user' %>
+      <br/>
+      <%= link_to 'Voltar para listagem de usuários', 'users' %>
+		</div>
+	<% else %>
+    <h3>Lista de usuários</h3>
+    <br/>
+		<%= link_to 'Procurar usuário', admin_find_user_path, :class => 'btn btn-primary' %>
+
+		<br>
+
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Email</th>
+          <th scope="col">Dinheiro</th>
+          <th scope="col">Dinheiro Bloqueado</th>
+          <th scope="col">Editar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <th scope="row"><%= user.id %></th>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td>$<%= user.money ? user.money : '0.00' %></td>
+          <td>$<%= user.blocked_money ? user.blocked_money : '0.00' %></td>
+          <td><%= link_to 'Editar', "/admin/edit_user/#{user.id}" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+	<% end %>
+</div>
+</body>

@@ -1,48 +1,53 @@
-<body style='background-color: #d3d3d3'>
 
-    <div class='row' style="margin-top: -50px">
+
+<body style='background-color: #EFEFEF'>
+
+  <div class='col-md-12 top-logo'></div>
+
+  <div class='container' style="z-index: 20; position: relative;">
+    <div class='row' style="height: 200px;">
       <div class='col-md-12'>
-          
-        <img src='http://www.tnam.co.zw/wp-content/uploads/2016/01/banner-how-we-invest-1.jpg' alt='test' class='img-responsive' width="100%">
-          
         <div class='carousel-caption'>
-          <h1>Invista no seu sonho!</h1>
+          <h1></h1>
         </div>
-      
       </div>
+    </div>
 
-</div>
+    <div style="margin-top: 50px;"></div>
+  
+    <div class='row custom-border-top' style='background-color: #191970; color: #FFF'>
+      <div class='col-md-12 text-center'>
+        <h2>100% DIGITAL, FÁCIL E PRÁTICO!</h2>
+      </div>
+    </div>
+    <div class='row' style='background-color: #FFF;'>
+      <div class='col-md-12 text-center lead'>
+        <br/>
+        Cadestre-se já e começe a investir o seu dinheiro, torne seus sonhos uma realidade!
+        <br/>
+        <br/>
+        <button type="button" class="btn btn-warning">Criar conta</button>
+        <br/>
+        <hr>
 
-<div style="margin-top: 20px;"></div>
-
-<div class='row' style='background-color: #191970; color: #FFF'>
-  <div class='col-md-12 text-center'>
-    <h2>100% DIGITAL, FÁCIL E PRÁTICO!</h2>
+        <%= line_chart [{
+            name: 'Valor comercial', 
+            data: [[2016, 1000000], [2017, 1890000], [2018, 2630000], [2019, 4760000]], 
+            curve: false, 
+            label: 'Valor Comercial',
+            color: '#191970'
+          }]
+        %>
+        <br/>
+        <hr>
+        <h2>Uma empresa com o valor de mais de 4 Bilhões de dólares</h2>
+        <h4>Mais de 2.0000 clientes e milhares de dólares investidos mundo a fora!</h4>
+        <br/>
+        Faça você também parte desta história e mude completamente a sua vida!
+        <br/>
+        <br/>
+      </div>
+    </div>
   </div>
-</div>
-<div class='row'>
-  <div class='col-md-12 text-center lead'>
-    Cadestre-se já e começe a investir o seu dinheiro, torne seus sonhos uma realidade!
-  </div>
-</div>
-
-<div class='container'>
-
-  <%= line_chart [{
-      name: 'Valor comercial', 
-      data: [[2016, 1000000], [2017, 1890000], [2018, 2630000], [2019, 4760000]], 
-      curve: false, label: 'Valor Comercial' 
-    }]
-  %>
-
-  <div class='row text-center'>
-  <h2>Uma empresa com o valor de mais de 4 Bilhões de dólares</h2>
-  <h4>Mais de 2.0000 clientes e milhares de dólares investidos mundo a fora!</h4>
-  <br/>
-  Faça você também parte desta história e mude completamente a sua vida!
-  </br>
-  </div>
-</div>
-
 
 </body>

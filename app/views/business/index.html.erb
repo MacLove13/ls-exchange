@@ -1,0 +1,43 @@
+<body style="background-color: #EFEFEF">
+  <div class="container" style="background-color: #FFFFFF">
+
+    <br/>
+    <div class='col-md-12'>
+      <div class='col-md-11'><h4>Mercado de Ações</h4></div>
+      <div class="col-md-1">
+        <%= link_to 'Atualizar', '#', :class => 'btn btn-success' %>
+      </div>
+    </div>
+
+    <div class='col-md-12'>
+      <div class='col-md-12'>
+
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Nome da companhia</th>
+              <th scope="col">Preço Atual</th>
+              <th scope="col">Movimentação</th>
+              <th scope="col">Variação</th>
+              <th scope="col">Acessar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @business.each do |business| 
+              valueHistory = business.value_history %>
+            <tr>
+              <td><%= business.name %></td>
+              <td>$<%= action_value(valueHistory) %></td>
+              <td><%= calculate_movimentation(valueHistory).round(2) %></td>
+              <td><%= calculate_variation(valueHistory) %>% <%= define_icon(valueHistory) %></td>
+              <td><%= link_to 'Mais detalhes >>', "../business/#{business.id}" %> </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+  </div>
+</body>
