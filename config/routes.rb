@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'business/:id', to: 'business#show', param: :id
+  get 'landing_page/index'
+  get 'informations/index'
+
+  root 'landing_page#index'
 end
