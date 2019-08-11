@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2019_08_10_224058) do
 
   create_table "business_value_histories", force: :cascade do |t|
     t.integer "business_id"
-    t.float "value"
+    t.float "value", default: 0.0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -23,17 +23,17 @@ ActiveRecord::Schema.define(version: 2019_08_10_224058) do
     t.string "name"
     t.string "initials"
     t.string "slogan"
-    t.integer "available_quotes"
-    t.integer "purchased_quotes"
+    t.integer "available_quotes", default: 0, null: false
+    t.integer "purchased_quotes", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "quotes", force: :cascade do |t|
-    t.integer "owner_id"
-    t.integer "business_id"
-    t.float "purchased_value"
-    t.integer "quantity"
+    t.integer "owner_id", null: false
+    t.integer "business_id", null: false
+    t.float "purchased_value", null: false
+    t.integer "quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,10 +46,10 @@ ActiveRecord::Schema.define(version: 2019_08_10_224058) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "money"
-    t.float "blocked_money"
-    t.string "name"
-    t.integer "admin"
+    t.float "money", default: 0.0, null: false
+    t.float "blocked_money", default: 0.0, null: false
+    t.string "name", null: false
+    t.integer "admin", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

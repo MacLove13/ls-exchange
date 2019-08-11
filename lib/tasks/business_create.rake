@@ -4,31 +4,44 @@ namespace :business do
   desc 'Populate business and Value History'
   task :create do
 
-    business = Business.create(name: 'San News')
+    business = Business.create(name: 'San News', initials: 'SN', available_quotes: quotes)
     create_history(business.id)
 
-    business = Business.create(name: 'Ammu Nation')
+    business = Business.create(name: 'Ammu Nation', initials: 'AMMU', available_quotes: quotes)
     create_history(business.id)
 
-    business = Business.create(name: 'Burguer Shot')
+    business = Business.create(name: 'Burguer Shot', initials: 'BSHT', available_quotes: quotes)
     create_history(business.id)
 
-    business = Business.create(name: 'Binco')
+    business = Business.create(name: 'Binco', initials: 'BNC', available_quotes: quotes)
     create_history(business.id)
 
-    business = Business.create(name: 'CNT')
+    business = Business.create(name: 'CNT', initials: 'CNT', available_quotes: quotes)
     create_history(business.id)
 
-    business = Business.create(name: 'Brute')
+    business = Business.create(name: 'Brute', initials: 'BRT', available_quotes: quotes)
     create_history(business.id)
 
-    business = Business.create(name: 'BF')
+    business = Business.create(name: 'BF', initials: 'BF', available_quotes: quotes)
     create_history(business.id)
 
-    business = Business.create(name: 'Victim')
+    business = Business.create(name: 'Victim', initials: 'VC', available_quotes: quotes)
+    create_history(business.id)
+
+    business = Business.create(name: 'Solarim Autos', initials: 'SLA', available_quotes: quotes)
+    create_history(business.id)
+
+    business = Business.create(name: 'Stacked', initials: 'STK', available_quotes: quotes)
+    create_history(business.id)
+
+    business = Business.create(name: 'Transports LTDA', initials: 'LTDA', available_quotes: quotes)
     create_history(business.id)
 
     p 'Business created'
+  end
+
+  def quotes
+    range(10, 100)
   end
 
   def range(min, max)

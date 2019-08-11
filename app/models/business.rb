@@ -8,11 +8,11 @@ class Business < ApplicationRecord
 		@history ||= BusinessValueHistory.where(:business_id => self.id).order('created_at DESC').limit(num_rows).reverse
 	end
 
-	def available_quotes
+	def verify_available_quotes
 		self.available_quotes
 	end
 
-	def purchased_quotes
+	def verify_purchased_quotes
 		self.purchased_quotes
 	end
 

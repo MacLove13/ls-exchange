@@ -122,4 +122,8 @@ module BusinessHelper
 		valuesHistory = valuesHistory.last
 		valuesHistory.value
 	end
+
+  def biz_available_quotes
+    @business.verify_available_quotes
+  end
 end

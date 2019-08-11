@@ -22,3 +22,7 @@
 
 //= require chartkick
 //= require Chart.bundle
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})

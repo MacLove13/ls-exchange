@@ -23,10 +23,14 @@
     <div class='row' style='background-color: #FFF;'>
       <div class='col-md-12 text-center lead'>
         <br/>
-        Cadestre-se já e começe a investir o seu dinheiro, torne seus sonhos uma realidade!
+        <% if !user_signed_in? %> 
+          Cadestre-se já e começe a investir o seu dinheiro, torne seus sonhos uma realidade!
         <br/>
         <br/>
-        <button type="button" class="btn btn-warning">Criar conta</button>
+        <%= button_to "Criar conta", new_user_registration_path, :class => 'btn btn-warning' %>
+        <% else %>
+          Olá <%= current_user.name %>, é um prazer tê-lo como nosso cliente!
+        <% end %>
         <br/>
         <hr>
 
