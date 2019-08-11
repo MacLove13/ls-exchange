@@ -17,7 +17,6 @@ module LsExchange
 
  	config.time_zone = 'Brasilia'
 
-
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
