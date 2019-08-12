@@ -1,7 +1,8 @@
 class BusinessController < ApplicationController
 
   def index
-  	@business = Business.page(params[:page])
+  	@business = Business.order(:name).page params[:page]
+
   end
 
   def show
