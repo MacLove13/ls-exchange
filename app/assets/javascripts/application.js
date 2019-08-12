@@ -27,6 +27,3 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
 
-function displayAlertModal() {
-  $('#alertModal').modal('show')
-}

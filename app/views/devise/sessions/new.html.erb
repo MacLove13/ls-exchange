@@ -7,6 +7,14 @@
 
       <br/>
 
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p> <br/>
+      <% end %>
+
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p> <br/>
+      <% end %>
+
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
           <%= f.label 'Email:' %><br />
