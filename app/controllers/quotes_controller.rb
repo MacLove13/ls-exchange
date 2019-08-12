@@ -1,7 +1,5 @@
 class QuotesController < ApplicationController
   def buy_quote
-    skip_before_action :verify_authenticity_token
-    
   	business = Business.find(params[:id])
 
   	buy_quantity = params[:buy_quantity].to_i
