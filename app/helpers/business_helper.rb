@@ -78,7 +78,7 @@ module BusinessHelper
 
 
 	def calculate_movimentation(valueHistory)
-		valuesHistory = valueHistory.order('created_at DESC').limit(2).reverse
+		valuesHistory = valueHistory.order('id DESC').limit(2).reverse
 
     	return 0 if valuesHistory.nil?
 
@@ -89,7 +89,7 @@ module BusinessHelper
 	end
 
 	def calculate_variation(valueHistory)
-		valuesHistory = valueHistory.order('created_at DESC').limit(2).reverse
+		valuesHistory = valueHistory.order('id DESC').limit(2).reverse
 
 		first = valuesHistory.first
 		last = valuesHistory.last
@@ -103,7 +103,7 @@ module BusinessHelper
 	end
 
 	def define_icon(valueHistory)
-		valuesHistory = valueHistory.order('created_at DESC').limit(2).reverse
+		valuesHistory = valueHistory.order('id DESC').limit(2).reverse
 
 		first = valuesHistory.first
 		last = valuesHistory.last
@@ -118,7 +118,7 @@ module BusinessHelper
 	end
 
 	def action_value(valueHistory)
-		valuesHistory = valueHistory.order('created_at DESC').limit(1).reverse
+		valuesHistory = valueHistory.order('id DESC').limit(1).reverse
 		valuesHistory = valuesHistory.last
 		valuesHistory.value
 	end

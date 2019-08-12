@@ -55,10 +55,12 @@
 
                       variation = calculate_variation(@business.value_history)
 
-                      valuesHistory = @business.value_history.order('created_at DESC').limit(2).reverse
-                      first = valuesHistory.first
-                      last_history = valuesHistory.last
+                      valuesHistory_two = @business.value_history.order('id DESC').limit(2)
+
+                      first = valuesHistory_two.last
+                      last_history = valuesHistory_two.first
                     %>
+
                   <%= @business.initials %> <br/>
                   $<%= last_history.value %>
                   <br/>
@@ -164,7 +166,7 @@
 
                       variation = calculate_variation(@business.value_history)
 
-                      valuesHistory = @business.value_history.order('created_at DESC').limit(2).reverse
+                      valuesHistory = @business.value_history.order('id DESC').limit(2).reverse
                       first = valuesHistory.first
                       last_history = valuesHistory.last
                     %>

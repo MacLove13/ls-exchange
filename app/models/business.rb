@@ -5,7 +5,7 @@ class Business < ApplicationRecord
 	end
 
 	def history(num_rows)
-		@history ||= BusinessValueHistory.where(:business_id => self.id).order('created_at DESC').limit(num_rows).reverse
+		@history ||= BusinessValueHistory.where(:business_id => self.id).order('id DESC').limit(num_rows).reverse
 	end
 
 	def verify_available_quotes

@@ -4,7 +4,7 @@ namespace :business do
 	business = Business.all
 
 	business.each do |biz|
-		lastHistory = BusinessValueHistory.where(business_id: biz.id).order('created_at DESC').limit(1)
+		lastHistory = BusinessValueHistory.where(business_id: biz.id).order('id DESC').limit(1)
 
 		history = lastHistory.last
 		value = history.value
