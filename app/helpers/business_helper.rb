@@ -89,7 +89,7 @@ module BusinessHelper
 	end
 
 	def calculate_variation(valueHistory)
-		valuesHistory = valueHistory.order('id DESC').limit(2).reverse
+		valuesHistory = valueHistory.order('id DESC').limit(2)
 
 		first = valuesHistory.first
 		last = valuesHistory.last
