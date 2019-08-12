@@ -26,7 +26,7 @@ module BusinessHelper
 
   def history
     # history = BusinessValueHistory.where(business_id: @business.id, created_at: (Time.now - 2.hours)..Time.now)
-    @history ||= BusinessValueHistory.where(business_id: @business.id).order('id DESC').limit(30).reverse
+    @history ||= BusinessValueHistory.where(business_id: @business.id).order('id DESC').limit(6).reverse
   end
 
   def max_value_graph
@@ -61,7 +61,7 @@ module BusinessHelper
 
   def history_graph
     # history_graph = BusinessValueHistory.where(business_id: @business.id, created_at: (Time.now - 5.hours)..Time.now)
-    @history_graph ||= BusinessValueHistory.where(business_id: @business.id).order('id DESC').limit(90).reverse
+    @history_graph ||= BusinessValueHistory.where(business_id: @business.id).order('id DESC').limit(72).reverse
   end
 
   def max_value_five_hours
