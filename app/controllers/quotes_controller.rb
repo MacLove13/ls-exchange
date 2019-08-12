@@ -2,6 +2,8 @@ class QuotesController < ApplicationController
   def buy_quote
   	business = Business.find(params[:id])
 
+    @error = 'teste'
+
   	# buy_quantity = params[:buy_quantity]
   	# buy_value = params[:buy_value]
 
