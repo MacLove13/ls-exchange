@@ -17,6 +17,7 @@ module LsExchange
 
  	config.time_zone = 'Brasilia'
 
+ 	config.enable_dependency_loading = true
  	config.eager_load_paths << Rails.root.join('lib')
 
 
