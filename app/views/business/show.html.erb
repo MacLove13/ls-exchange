@@ -184,7 +184,7 @@
                     Quantidade a comprar:
                     <%= number_field_tag :buy_quantity, 0, min: 1, max: biz_available_quotes, :class => 'form-control' %>
 
-                    <%= hidden_field_tag :buy_value, :value => last_history.value %>
+                    <%= hidden_field_tag :buy_value, last_history.value %>
                   </div>
                   <div class="actions">
                     <% if user_signed_in? %>
