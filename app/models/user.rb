@@ -23,6 +23,6 @@ class User < ApplicationRecord
   end
 
   def admin?
-    self.admin > 0
+    self.admin.present? && self.admin > 0
   end
 end
