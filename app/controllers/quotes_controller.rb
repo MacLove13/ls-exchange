@@ -10,7 +10,7 @@ class QuotesController < ApplicationController
 
   	historyValue = history_value(business.id)
 
-    return @error = 'buy_value' if buy_value != historyValue.value
+    return @error = "buy_value | Atual: #{historyValue.value} | Param: #{buy_value}" if buy_value != historyValue.value
 
     total_price = buy_quantity * historyValue.value
 
