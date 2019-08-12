@@ -23,6 +23,6 @@ class User < ApplicationRecord
   end
 
   def admin?
-    seld.admin > 0
+    self.admin > 0
   end
 end
