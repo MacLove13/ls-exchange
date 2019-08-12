@@ -1,9 +1,12 @@
 class QuotesController < ApplicationController
   def buy_quote
+
+    before_filter :convert_params_to_int
+
   	business = Business.find(params[:id])
 
-  	buy_quantity = params[:buy_quantity].to_i
-  	buy_value = params[:buy_value].to_i
+  	buy_quantity = params[:buy_quantity]
+  	buy_value = params[:buy_value]
 
     return @error = 'dont_logged' if !user_signed_in?
   	return @error = 'not_have_quantity' if buy_quantity > business.verify_available_quotes
@@ -34,6 +37,11 @@ class QuotesController < ApplicationController
   end
 
   private
+
+  def convert_params_to_int
+    params[:buy_quantity] = params[:buy_quantity].to_i
+    params[:buy_value] = params[:buy_value].to_f
+  end
 
   def history_value(business_id)
     history ||= BusinessValueHistory.where(business_id: business_id).last
