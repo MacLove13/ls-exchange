@@ -37,6 +37,7 @@ namespace :business do
     business = Business.create(name: 'Transports LTDA', initials: 'LTDA', available_quotes: quotes)
     create_history(business.id)
 
+
     p 'Business created'
   end
 
