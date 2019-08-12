@@ -24,10 +24,6 @@ ActiveRecord::Schema.define(version: 2019_08_10_224058) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
-    t.string "initials"
-    t.string "slogan"
-    t.integer "available_quotes", default: 0, null: false
-    t.integer "purchased_quotes", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
