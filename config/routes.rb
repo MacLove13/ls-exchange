@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'wallet/index'
   root to: 'landing_page#index'
   devise_for :users
 
