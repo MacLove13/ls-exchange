@@ -8,7 +8,7 @@ class QuotesController < ApplicationController
     return @error = 'dont_logged' if !user_signed_in?
   	return @error = 'not_have_quantity' if buy_quantity > business.verify_available_quotes
 
-  	historyValue = history_value(business_id)
+  	historyValue = history_value(business.id)
 
     return @error = 'buy_value' if buy_value != historyValue.value
 
