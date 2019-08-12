@@ -74,6 +74,10 @@ module BusinessHelper
     (@min_value_hours - 30).round
   end
 
+  def pagination
+    paginate @business
+  end
+
   # ===========================
 
 
