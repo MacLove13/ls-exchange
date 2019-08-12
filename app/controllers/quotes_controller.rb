@@ -2,8 +2,8 @@ class QuotesController < ApplicationController
   def buy_quote
   	business = Business.find(params[:id])
 
-  	buy_quantity = params[:buy_quantity]
-  	buy_value = params[:buy_value]
+  	buy_quantity = params[:buy_quantity].to_i
+  	buy_value = params[:buy_value].to_i
 
     return @error = 'dont_logged' if !user_signed_in?
   	return @error = 'not_have_quantity' if buy_quantity > business.verify_available_quotes
