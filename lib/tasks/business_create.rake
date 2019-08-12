@@ -2,7 +2,7 @@
 
 namespace :business do
   desc 'Populate business and Value History'
-  task :create => :environment do
+  task :create do
 
     business = Business.create(name: 'San News', initials: 'SN', available_quotes: quotes)
     create_history(business.id)
