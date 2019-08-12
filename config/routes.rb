@@ -14,7 +14,6 @@ Rails.application.routes.draw do
 
   # Admin Control
   get '/admin/users', to: 'users#index'
-  get '/admin/find_user', to: 'users#find'
   get '/admin/user/:id', to: 'users#show'
   get '/admin/edit_user/:id', to: 'users#admin_edit', param: :id
   post '/admin/update_user/:id' => 'users#update_user'
