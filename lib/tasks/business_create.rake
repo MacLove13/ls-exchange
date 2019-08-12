@@ -4,39 +4,38 @@ namespace :business do
   desc 'Populate business and Value History'
   task create: :environment do
 
-    business = Business.create(name: 'San News', initials: 'SN', available_quotes: quotes)
+    business = Business.create(name: 'San News', initials: 'SN', available_quotes: quotes, purchased_quotes: 0)
     create_history(business.id)
 
-    business = Business.create(name: 'Ammu Nation', initials: 'AMMU', available_quotes: quotes)
+    business = Business.create(name: 'Ammu Nation', initials: 'AMMU', available_quotes: quotes, purchased_quotes: 0)
     create_history(business.id)
 
-    business = Business.create(name: 'Burguer Shot', initials: 'BSHT', available_quotes: quotes)
+    business = Business.create(name: 'Burguer Shot', initials: 'BSHT', available_quotes: quotes, purchased_quotes: 0)
     create_history(business.id)
 
-    business = Business.create(name: 'Binco', initials: 'BNC', available_quotes: quotes)
+    business = Business.create(name: 'Binco', initials: 'BNC', available_quotes: quotes, purchased_quotes: 0)
     create_history(business.id)
 
-    business = Business.create(name: 'CNT', initials: 'CNT', available_quotes: quotes)
+    business = Business.create(name: 'CNT', initials: 'CNT', available_quotes: quotes, purchased_quotes: 0)
     create_history(business.id)
 
-    business = Business.create(name: 'Brute', initials: 'BRT', available_quotes: quotes)
+    business = Business.create(name: 'Brute', initials: 'BRT', available_quotes: quotes, purchased_quotes: 0)
     create_history(business.id)
 
-    business = Business.create(name: 'BF', initials: 'BF', available_quotes: quotes)
+    business = Business.create(name: 'BF', initials: 'BF', available_quotes: quotes, purchased_quotes: 0)
     create_history(business.id)
 
-    business = Business.create(name: 'Victim', initials: 'VC', available_quotes: quotes)
+    business = Business.create(name: 'Victim', initials: 'VC', available_quotes: quotes, purchased_quotes: 0)
     create_history(business.id)
 
-    business = Business.create(name: 'Solarim Autos', initials: 'SLA', available_quotes: quotes)
+    business = Business.create(name: 'Solarim Autos', initials: 'SLA', available_quotes: quotes, purchased_quotes: 0)
     create_history(business.id)
 
-    business = Business.create(name: 'Stacked', initials: 'STK', available_quotes: quotes)
+    business = Business.create(name: 'Stacked', initials: 'STK', available_quotes: quotes, purchased_quotes: 0)
     create_history(business.id)
 
-    business = Business.create(name: 'Transports LTDA', initials: 'LTDA', available_quotes: quotes)
+    business = Business.create(name: 'Transports LTDA', initials: 'LTDA', available_quotes: quotes, purchased_quotes: 0)
     create_history(business.id)
-
 
     p 'Business created'
   end
