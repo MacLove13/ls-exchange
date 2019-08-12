@@ -50,10 +50,10 @@ namespace :business do
 
   def create_history(business_id)
     25.times { 
-      value = range(40, 120)
+      value = range(40, 700)
       value = value.round(2)
       minute = range(0, 59)
-      BusinessValueHistory.create(business_id: business_id, value: value, created_at: "2019-08-09 23:#{minute}:51")
+      BusinessValueHistory.create(business_id: business_id, value: value, created_at: "2019-11-09 23:#{minute}:51")
     }
   end
 end
