@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   post '/admin/update_user/:id' => 'users#update_user'
 
   # Buy quotes
-  post 'buy_quote/:id' => 'quotes#buy_quote'
+  post '/buy_quote/:id' => 'quotes#buy_quote'
 
 end
