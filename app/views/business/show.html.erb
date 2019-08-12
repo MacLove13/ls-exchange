@@ -70,7 +70,7 @@
                   <%= define_icon(@business.value_history) %> <%= variation %>
               </div>
               <div class='col-md-8'>
-                <font size="1px" >Informações referentes as últimas 5 horas</font>
+                <font size="1px" >Informações referentes as últimas 12 horas</font>
                 <table class="table">
                   <tbody>
                     <tr style="background-color: #F3F3F3">
@@ -179,7 +179,7 @@
               </div>
               <div class='col-md-7'>
                 
-                <%= form_tag "buy_quotes/#{@business.id}" do |f| %>
+                <%= form_tag "./buy_quotes/#{@business.id}" do |f| %>
                   <div class="form-group">
                     Quantidade a comprar:
                     <%= number_field_tag :buy_quantity, 0, max: biz_available_quotes, :class => 'form-control' %>

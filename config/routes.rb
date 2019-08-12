@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'quotes/buy_quote'
-  devise_for :users
-  
   root to: 'landing_page#index'
+  devise_for :users
 
   # business
   get 'business/:id', to: 'business#show', param: :id
@@ -21,6 +19,6 @@ Rails.application.routes.draw do
   post '/admin/update_user/:id' => 'users#update_user'
 
   # Buy quotes
-  post '/business/buy_quote/:id' => 'quotes#buy_quote'
+  post 'buy_quote/:id' => 'quotes#buy_quote'
 
 end
