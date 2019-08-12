@@ -1,5 +1,7 @@
 class QuotesController < ApplicationController
   def buy_quote
+    skip_before_action :verify_authenticity_token
+    
   	business = Business.find(params[:id])
 
   	buy_quantity = params[:buy_quantity].to_i
@@ -22,6 +24,9 @@ class QuotesController < ApplicationController
       purchased_value: historyValue.value,
       quantity: buy_quantity
     )
+
+    current_user.money = current_user.money - total_price
+    current_user.save
 
     avail_quotes = business.available_quotes - buy_quantity
     purch_quotes = business.purchased_quotes + buy_quantity
