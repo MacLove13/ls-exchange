@@ -3,17 +3,21 @@
 
     <div class='col-md-3'></div>
     <div class='col-md-6' style="background-color: #FFF; border-radius: 10px;">
-      <h2>Login</h2>
+      <center><h1>Login</h1></center>
+
+      <br/>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
           <%= f.label 'Email:' %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => 'form-control' %>
         </div>
+
+        <br/>
 
         <div class="field">
           <%= f.label 'Senha:' %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
+          <%= f.password_field :password, autocomplete: "current-password", :class => 'form-control' %>
         </div>
 
         <% if devise_mapping.rememberable? %>
@@ -24,12 +28,16 @@
         <% end %>
 
         <div class="actions">
-          <%= f.submit "Login", :class => 'btn btn-success' %>
+          <%= f.submit "Login", :class => 'btn btn-success btn-lg btn-block' %>
         </div>
       <% end %>
 
       <br/>
-      <%= render "devise/shared/links" %>
+      <center>
+        <font color="#000">
+          <%= render "devise/shared/links" %>
+        </font>
+      </center>
 
       <br/>
       <br/>
