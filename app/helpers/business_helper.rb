@@ -9,10 +9,10 @@ module BusinessHelper
     @max_value = 0
 
     history = BusinessValueHistory.where(business_id: @business.id, created_at: (Time.now - 2.hours)..Time.now)
-    
-		history.each do |history|
 
-      date = history.created_at.strftime("%H:%M")
+		history.each do |history|
+      
+      date = history.created_at.in_time_zone("America/Sao_Paulo").strftime("%H:%M")
       data = []
       data.push(date)
       data.push(history.value)
@@ -44,7 +44,7 @@ module BusinessHelper
     @max_value_hours = 0
 
     history_graph.each do |history|
-      date = history.created_at.strftime("%H:%M")
+      date = history.created_at.in_time_zone("America/Sao_Paulo").strftime("%H:%M")
 
       data = []
       data.push(date)
