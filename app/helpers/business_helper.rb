@@ -9,7 +9,7 @@ module BusinessHelper
     @max_value = 0
 
     # history = BusinessValueHistory.where(business_id: @business.id, created_at: (Time.now - 2.hours)..Time.now)
-    history = BusinessValueHistory.where(business_id: @business.id).limit(30)
+    history = BusinessValueHistory.where(business_id: @business.id).order('id DESC').limit(30).reverse
 
 		history.each do |history|
 
@@ -39,7 +39,7 @@ module BusinessHelper
 
   def generate_grapt_five_hours_date
     # history_graph = BusinessValueHistory.where(business_id: @business.id, created_at: (Time.now - 5.hours)..Time.now)
-    history_graph = BusinessValueHistory.where(business_id: @business.id).limit(90)
+    history_graph = BusinessValueHistory.where(business_id: @business.id).order('id DESC').limit(90).reverse
 
     graph_data = []
     @min_value_hours = 9999999
