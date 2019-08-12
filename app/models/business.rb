@@ -1,4 +1,5 @@
 class Business < ApplicationRecord
+	paginates_per 15
 
 	def value_history
 		@values ||= BusinessValueHistory.where(business_id: self.id)
