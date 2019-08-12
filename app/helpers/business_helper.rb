@@ -8,9 +8,6 @@ module BusinessHelper
     @min_value = 9999999
     @max_value = 0
 
-    # history = BusinessValueHistory.where(business_id: @business.id, created_at: (Time.now - 2.hours)..Time.now)
-    history = BusinessValueHistory.where(business_id: @business.id).order('id DESC').limit(30).reverse
-
 		history.each do |history|
 
       date = history.created_at.in_time_zone("America/Sao_Paulo").strftime("%H:%M")
@@ -27,6 +24,11 @@ module BusinessHelper
     graph_data
 	end
 
+  def history
+    # history = BusinessValueHistory.where(business_id: @business.id, created_at: (Time.now - 2.hours)..Time.now)
+    @history ||= BusinessValueHistory.where(business_id: @business.id).order('id DESC').limit(30).reverse
+  end
+
   def max_value_graph
     (@max_value + 30).round
   end
@@ -38,9 +40,6 @@ module BusinessHelper
   # Graphic 2 - Last Five Hours
 
   def generate_grapt_five_hours_date
-    # history_graph = BusinessValueHistory.where(business_id: @business.id, created_at: (Time.now - 5.hours)..Time.now)
-    history_graph = BusinessValueHistory.where(business_id: @business.id).order('id DESC').limit(90).reverse
-
     graph_data = []
     @min_value_hours = 9999999
     @max_value_hours = 0
@@ -58,6 +57,11 @@ module BusinessHelper
       graph_data.push(data)
     end
     graph_data
+  end
+
+  def history_graph
+    # history_graph = BusinessValueHistory.where(business_id: @business.id, created_at: (Time.now - 5.hours)..Time.now)
+    @history_graph ||= BusinessValueHistory.where(business_id: @business.id).order('id DESC').limit(90).reverse
   end
 
   def max_value_five_hours
