@@ -25,7 +25,7 @@ class QuotesController < ApplicationController
       quantity: buy_quantity
     )
 
-    current_user.money = current_user.money - total_price
+    current_user.money = (current_user.money - total_price).round(2)
     current_user.save
 
     avail_quotes = business.available_quotes - buy_quantity
