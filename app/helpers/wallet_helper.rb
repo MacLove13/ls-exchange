@@ -6,4 +6,8 @@ module WalletHelper
 
     @price = (actual_value - total_spend).round(2)
 	end
+
+  def sell_price(quantity, current_value)
+    
+  end
 end
