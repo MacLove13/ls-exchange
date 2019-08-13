@@ -1,2 +1,44 @@
 <h1>Wallet#index</h1>
 <p>Find me in app/views/wallet/index.html.erb</p>
+
+<body style="background-color: #EFEFEF">
+  <div class="container" style="background-color: #FFFFFF">
+
+    <br/>
+    <div class='col-md-12'>
+     	<h4>Minhas ações</h4>
+    </div>
+
+    <div class='col-md-12'>
+      <div class='col-md-12'>
+
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Companhia</th>
+              <th scope="col">Quantidade</th>
+              <th scope="col">Valor pago</th>
+              <th scope="col">Preço Atual</th>
+              <th scope="col">Lucro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @quotes.each do |quote| 
+              biz = quote.business %>
+            <tr>
+              <td><%= biz.name %> (<%= biz.initials %>)</td>
+              <td><%= quote.quantity %></td>
+              <td>$<%= quote.purchased_value %></td>
+              <td>$<%= quote.current_price %></td>
+              <td>$<%= calculate_gain(quote.quantity, quote.purchased_value, quote.current_price) %> </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+
+      </div>
+    </div>
+
+  </div>
+</body>

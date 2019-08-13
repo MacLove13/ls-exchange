@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  post 'wallet/index'
   root to: 'landing_page#index'
   devise_for :users
 
@@ -21,5 +20,8 @@ Rails.application.routes.draw do
 
   # Buy quotes
   post 'quote/buy_quote/:id' => 'quotes#buy_quote'
+
+  # My Quotes
+  get 'wallet', to: 'wallet#index'
 
 end
