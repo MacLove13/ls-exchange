@@ -35,17 +35,19 @@
               <td>$<%= quote.purchased_value %></td>
               <td>$<%= quote.current_price %></td>
               <td>$<%= calculate_gain(quote.quantity, quote.purchased_value, quote.current_price) %> </td>
-              <% if @price > 0 %>
-                <td><%= link_to "Vender por $#{price_to_sell}", "#", :class => 'btn btn-success btn-sm' %> </td>
-              <% else %>
-                <td><%= link_to "Vender por $#{price_to_sell}", "#", :class => 'btn btn-danger btn-sm' %> </td>
-              <% end %>
-              <td><%= link_to "Ver no mercado", "/business/#{quote.business_id}", :class => 'btn btn-secondary btn-sm' %> </td>
+              <td>
+                <% if @price > 0 %>
+                  <%= link_to "Vender por $#{price_to_sell}", "#", :class => 'btn btn-success btn-sm' %>
+                <% else %>
+                  <%= link_to "Vender por $#{price_to_sell}", "#", :class => 'btn btn-danger btn-sm' %>
+                <% end %>
+              </td>
+              <td><%= link_to "Ver no mercado", "/business/#{quote.business_id}", :class => "btn btn-secondary btn-sm" %> </td>
             </tr>
             <% end %>
           </tbody>
         </table>
-        
+
       </div>
     </div>
   </div>
