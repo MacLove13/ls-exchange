@@ -13,13 +13,25 @@ namespace :business do
 		valueMin = value - rand * rand(15)
 
 		# Critical Change
+		# ===============================================================
+		# Positive
 		critical_positive = rand(15).to_i
 		valueMax = valueMax + rand * rand(15) if critical_positive == 5
+
+		critical_positive_hard = rand(50).to_i
+		valueMax = valueMax + rand * rand(50) if critical_positive_hard == 10
+
+		# ===============================================================
+		# Negative
 
 		critical_negative = rand(15).to_i
 		valueMin = valueMin - rand * rand(20) if critical_positive == 5
 
+		critical_negative_hard = rand(50).to_i
+		valueMin = valueMin - rand * rand(50) if critical_negative_hard == 10
+
 		# Calcule final value and round
+		# ===============================================================
 		valueFinal = rand * (valueMax-valueMin) + valueMin
 		valueFinal = valueFinal.round(2)
 
