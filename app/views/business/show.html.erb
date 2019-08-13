@@ -182,7 +182,14 @@
                 <%= form_tag "../quote/buy_quote/#{@business.id}" do |f| %>
                   <div class="form-group">
                     Quantidade a comprar:
-                    <%= number_field_tag :buy_quantity, 0, min: 1, max: biz_available_quotes, :class => 'form-control' %>
+
+                    <% if user_signed_in? %>
+                      <%= number_field_tag :buy_quantity, 0, min: 1, max: biz_available_quotes, :class => 'form-control' %>
+                    <% else %>
+                      <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Você precisa estar logado">
+                        <%= number_field_tag :buy_quantity, 0, min: 1, max: biz_available_quotes, :class => 'form-control', disabled: true %>
+                      </span>
+                    <% end %>
 
                     <%= hidden_field_tag :buy_value, last_history.value %>
                   </div>
