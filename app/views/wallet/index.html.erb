@@ -31,7 +31,7 @@
               <td>$<%= quote.purchased_value %></td>
               <td>$<%= quote.current_price %></td>
               <td>$<%= calculate_gain(quote.quantity, quote.purchased_value, quote.current_price) %> </td>
-              <% price_to_sell = (quote.quantity * quote.current_price).round(2) %>
+              <% price_to_sell = (quote.quantity.round(2) * quote.current_price.round(2)).round(2) %>
 
               <% if @price > 0 %>
                 <td><%= link_to "Vender por $#{price_to_sell}", "#", :class => 'btn btn-success' %> </td>
