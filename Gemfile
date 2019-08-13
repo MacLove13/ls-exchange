@@ -39,8 +39,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'jquery-rails'
 # Bootstrap
-gem 'bootstrap-sass', '~> 3.4.1'
+# gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
+gem 'bootstrap', '~> 4.3.1'
+
 gem 'font-awesome-sass', '~> 5.9.0'
 gem "chartkick"
 gem 'groupdate'

@@ -41,4 +41,7 @@ namespace :business do
 	end
 	puts 'Valores de acoes atualizados'
 end
-end
+
+
+# editorconfig.org dot file
+# Filipe Deschamps
