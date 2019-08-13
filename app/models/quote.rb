@@ -1,4 +1,5 @@
 class Quote < ApplicationRecord
+  paginates_per 20
 
 	def business
 		@business ||= Business.find_by(id: self.business_id)

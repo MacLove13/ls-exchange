@@ -22,6 +22,6 @@ Rails.application.routes.draw do
   post 'quote/buy_quote/:id' => 'quotes#buy_quote'
 
   # My Quotes
-  get 'wallet', to: 'wallet#index'
+  get 'wallet/:page', to: 'wallet#index', only: [:index], param: :page
 
 end
