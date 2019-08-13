@@ -32,7 +32,12 @@
               <td>$<%= quote.current_price %></td>
               <td>$<%= calculate_gain(quote.quantity, quote.purchased_value, quote.current_price) %> </td>
               <% price_to_sell = (quote.quantity * quote.current_price).round(2) %>
-              <td><%= link_to "Vender por $#{price_to_sell}", "#", :class => 'btn btn-success' %> </td>
+
+              <% if @price > 0 %>
+                <td><%= link_to "Vender por $#{price_to_sell}", "#", :class => 'btn btn-success' %> </td>
+              <% else %>
+                <td><%= link_to "Vender por $#{price_to_sell}", "#", :class => 'btn btn-danger' %> </td>
+              <% end %>
               <td><%= link_to "Ver no mercado", "/business/#{quote.business_id}", :class => 'btn btn-light' %> </td>
             </tr>
             <% end %>
