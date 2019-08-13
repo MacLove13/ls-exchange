@@ -9,15 +9,15 @@ namespace :business do
 		history = lastHistory.last
 		value = history.value
 
-		valueMax = value + rand(6)
-		valueMin = value - rand(6)
+		valueMax = value + rand * rand(15)
+		valueMin = value - rand * rand(15)
 
 		# Critical Change
-		critical_positive = rand(10).to_i
-		valueMax = valueMax + rand * 10 if critical_positive == 5
+		critical_positive = rand(15).to_i
+		valueMax = valueMax + rand * rand(15) if critical_positive == 5
 
-		critical_negative = rand(10).to_i
-		valueMin = valueMin - rand * 20 if critical_positive == 5
+		critical_negative = rand(15).to_i
+		valueMin = valueMin - rand * rand(20) if critical_positive == 5
 
 		# Calcule final value and round
 		valueFinal = rand * (valueMax-valueMin) + valueMin
