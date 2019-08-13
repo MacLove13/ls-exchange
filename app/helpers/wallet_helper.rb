@@ -4,6 +4,6 @@ module WalletHelper
     total_spend = purchased_value * quantity
     actual_value = current_value * quantity
 
-    (total_spend - actual_value).round(2)
+    (actual_value - total_spend).round(2)
 	end
 end
