@@ -48,6 +48,9 @@ gem 'bcrypt'
 gem 'devise'
 gem 'kaminari' # pagination
 
+# Sentry
+gem "sentry-raven"
+
 # Scheduler
 gem 'whenever', require: false 
 
