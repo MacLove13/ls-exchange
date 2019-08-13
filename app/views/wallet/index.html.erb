@@ -34,11 +34,11 @@
               <% price_to_sell = (quote.quantity.round(2) * quote.current_price.round(2)).round(2) %>
 
               <% if @price > 0 %>
-                <td><%= link_to "Vender por $#{price_to_sell}", "#", :class => 'btn btn-success' %> </td>
+                <td><%= link_to "Vender por $#{price_to_sell}", "#", :class => 'btn btn-success btn-sm' %> </td>
               <% else %>
-                <td><%= link_to "Vender por $#{price_to_sell}", "#", :class => 'btn btn-danger' %> </td>
+                <td><%= link_to "Vender por $#{price_to_sell}", "#", :class => 'btn btn-danger btn-sm' %> </td>
               <% end %>
-              <td><%= link_to "Ver no mercado", "/business/#{quote.business_id}", :class => 'btn btn-secondary' %> </td>
+              <td><%= link_to "Ver no mercado", "/business/#{quote.business_id}", :class => 'btn btn-secondary btn-sm' %> </td>
             </tr>
             <% end %>
           </tbody>
