@@ -10,7 +10,7 @@
     <div class='col-md-12'>
       <div class='col-md-12'>
 
-        <table class="table">
+        <table class="table table-sm text-center">
           <thead class="thead-dark">
             <tr>
               <th scope="col">Companhia</th>
@@ -22,7 +22,7 @@
               <th scope="col">Visitar</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="table-hover">
             <% @quotes.each do |quote| 
               biz = quote.business %>
             <tr>
