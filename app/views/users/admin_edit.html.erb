@@ -18,12 +18,12 @@
 
       <div class="form-group">
         Dinheiro:
-        <%= float_field_tag :money, @user.money, :class => 'form-control' %>
+        <%= numeric_field_tag :money, @user.money, :step => "0.01", :class => 'form-control' %>
       </div>
 
       <div class="form-group">
         Dinheiro bloqueado:
-        <%= float_field_tag :blocked_money, @user.blocked_money, :class => 'form-control' %>
+        <%= numeric_field_tag :blocked_money, @user.blocked_money, :step => "0.01", :class => 'form-control' %>
       </div>
 
       <br/>
