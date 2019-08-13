@@ -7,10 +7,8 @@
      	<h4>Minhas ações</h4>
     </div>
 
-    <div class='col-md-12'>
-      <div class='col-md-12'>
-
-        <table class="table table-sm text-center">
+    <div class='row'>
+        <table class="table">
           <thead class="thead-dark">
             <tr>
               <th scope="col">Companhia</th>
@@ -23,8 +21,10 @@
             </tr>
           </thead>
           <tbody class="table-hover">
-            <% @quotes.each do |quote| 
-              biz = quote.business %>
+            <% 
+              @quotes.each do |quote| 
+              biz = quote.business 
+            %>
             <tr>
               <td><%= biz.name %> (<%= biz.initials %>)</td>
               <td><%= quote.quantity %></td>
@@ -45,7 +45,6 @@
         </table>
 
 
-      </div>
     </div>
 
   </div>
