@@ -1,7 +1,7 @@
 class Quote < ApplicationRecord
 
 	def business
-		@business ||= Business.find_by(business_id: self.business_id)
+		@business ||= Business.find_by(id: self.business_id)
 	end
 
 	def current_price
