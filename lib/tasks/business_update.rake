@@ -25,7 +25,7 @@ namespace :business do
 		# Negative
 
 		critical_negative = rand(15).to_i
-		valueMin = valueMin - rand * rand(20) if critical_positive == 5
+		valueMin = valueMin - rand * rand(20) if critical_negative == 5
 
 		critical_negative_hard = rand(50).to_i
 		valueMin = valueMin - rand * rand(50) if critical_negative_hard == 10
