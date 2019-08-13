@@ -18,6 +18,7 @@
               <th scope="col">Valor pago</th>
               <th scope="col">Preço Atual</th>
               <th scope="col">Lucro</th>
+              <th scope="col">Vender</th>
             </tr>
           </thead>
           <tbody>
@@ -29,6 +30,7 @@
               <td>$<%= quote.purchased_value %></td>
               <td>$<%= quote.current_price %></td>
               <td>$<%= calculate_gain(quote.quantity, quote.purchased_value, quote.current_price) %> </td>
+              <td><%= link_to "Vender por $#{@price}", "../business/#{business.id}", :class => 'btn btn-success' %> </td>
             </tr>
             <% end %>
           </tbody>

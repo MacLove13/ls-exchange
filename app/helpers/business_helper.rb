@@ -30,11 +30,11 @@ module BusinessHelper
   end
 
   def max_value_graph
-    (@max_value + 30).round
+    (@max_value + 5).round
   end
 
   def min_value_graph
-    (@min_value - 30).round
+    (@min_value - 5).round
   end
 
   # Graphic 2 - Last Five Hours
@@ -73,11 +73,11 @@ module BusinessHelper
   end
 
   def max_value_five_hours_graph
-    (@max_value_hours + 30).round
+    (@max_value_hours + 5).round
   end
 
   def min_value_five_hours_graph
-    (@min_value_hours - 30).round
+    (@min_value_hours - 5).round
   end
 
   # ===========================
