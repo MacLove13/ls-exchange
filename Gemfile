@@ -48,7 +48,9 @@ gem "chartkick"
 gem 'groupdate'
 gem 'bcrypt'
 gem 'devise'
-gem 'kaminari' # pagination
+
+# pagination
+gem 'kaminari', '>= 1.0.0'
 
 # Sentry
 gem "sentry-raven"
