@@ -27,8 +27,31 @@
         </div>
       <% else %>
 
-      Voce comprou as cotas.
+        <div class="row">
+          <div class="col-md-12" style="background-color: #FFF; border-radius: 7px;">
+            
+            <div class="row">
+              <div class="col-md-12">
+                <h1>Compra de Ação</h1>
+                <hr/>
+              </div>
+            </div>
 
+            <div class="row">
+              <div class="col-md-12">
+                Parabéns, você adquiriu <b><%= @buy_quantity %></b> cotas do(a) <b><%= @business.name %></b> por <b>$<%= @total_price %></b>!
+                <br/>
+                <br/>
+                Você pode acompanhar as variações do valor de sua ação, na página da empresa no <b>Mercado de Ações</b>.
+                <br/>
+                <br/>
+                E você também pode administrar sua ações indo em <b>Carteira -> Minhas ações</b>.
+                <br/>
+              </div>
+            </div>
+
+          </div>
+        </div>
 
       <% end %>
     </div>

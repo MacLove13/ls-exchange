@@ -2,9 +2,9 @@ class QuotesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def buy_quote
-  	business = Business.find(params[:id])
+  	@business = Business.find(params[:id])
 
-  	buy_quantity = params[:buy_quantity].to_i
+  	@buy_quantity = params[:buy_quantity].to_i
   	buy_value = params[:buy_value].to_f
 
     return @error = 'dont_logged' if !user_signed_in?
@@ -14,7 +14,7 @@ class QuotesController < ApplicationController
 
     return @error = "buy_value" if buy_value != historyValue.value
 
-    total_price = buy_quantity * historyValue.value
+    @total_price = buy_quantity * historyValue.value
 
     return @error = 'not_have_money' if current_user.money < total_price
 
