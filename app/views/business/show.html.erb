@@ -144,6 +144,8 @@
                 first = valuesHistory.first
                 last_history = valuesHistory.last
               %>
+              <b>Total de cotas:</b> <br/>
+              <%= biz_total_quotes %> <br/><br/>
               <b>Cotas disponíveis:</b> <br/>
               <%= biz_available_quotes %> <br/><br/>
               <b>Valor:</b> <br/> 
@@ -181,8 +183,8 @@
           
           <% if user_signed_in? %>
             <div class="row">
-              <hr/>
               <div class='col-md-12' style="font-size: 12px; margin-top: 10px;">
+                <hr/>
                 Você tem <%= current_user.business_quotes(@business.id).sum('quantity') %> cotas desta ação. <br/>
 
                 <%= link_to "Gerenciar minhas ações >>", "/wallet/1", :class => "btn btn-secondary btn-sm" %>

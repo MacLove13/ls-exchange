@@ -132,4 +132,8 @@ module BusinessHelper
   def biz_available_quotes
     @business.verify_available_quotes
   end
+
+  def biz_total_quotes
+    @business.total_quotes
+  end
 end
