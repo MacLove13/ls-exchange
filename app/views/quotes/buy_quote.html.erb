@@ -1,35 +1,36 @@
-<div class="container mt-4 pb-4" style="background-color: #FFFFFF;">
+<div class="container mt-4 pb-4">
   <div class="row pt-3 pb-3">
+    <div class="col-md-12">
+      <% if @error == 'buy_value' %>
+        <div class="alert alert-danger" role="alert">
+          O valor da ação foi atulizado!! <br/>
+          Retorne a página e realize a compra novamente para concluir.<br/>
+          <br/>
+          <%= link_to 'Voltar', :back %>
+        </div>
+      <% elsif @error == 'dont_logged' %>
+        <div class="alert alert-danger" role="alert">
+          Você precisa estar logado para realizar uma compra.
+        </div>
+      <% elsif @error == 'not_have_quotes_quantity' %>
+        <div class="alert alert-danger" role="alert">
+          Essa ação não tem este número de cotas para vender. <br/>
+          Pode ser que em quanto você estava na página, alguém comprou cotas desta ação.<br/>
+          <br/>
+          <%= link_to 'Voltar', :back %>
+        </div>
+      <% elsif @error == 'not_have_money' %>
+        <div class="alert alert-danger" role="alert">
+          Você não tem dinheiro o suficiente para comprar as cotas desta ação. <br/>
+          <br/>
+          <%= link_to 'Voltar', :back %>
+        </div>
+      <% else %>
 
-    <% if @error == 'buy_value' %>
-      <div class="alert alert-danger" role="alert">
-        O valor da ação foi atulizado!! <br/>
-        Retorne a página e realize a compra novamente para concluir.<br/>
-        <br/>
-        <%= link_to 'Voltar', :back %>
-      </div>
-    <% elsif @error == 'dont_logged' %>
-      <div class="alert alert-danger" role="alert">
-        Você precisa estar logado para realizar uma compra.
-      </div>
-    <% elsif @error == 'not_have_quotes_quantity' %>
-      <div class="alert alert-danger" role="alert">
-        Essa ação não tem este número de cotas para vender. <br/>
-        Pode ser que em quanto você estava na página, alguém comprou cotas desta ação.<br/>
-        <br/>
-        <%= link_to 'Voltar', :back %>
-      </div>
-    <% elsif @error == 'not_have_money' %>
-      <div class="alert alert-danger" role="alert">
-        Você não tem dinheiro o suficiente para comprar as cotas desta ação. <br/>
-        <br/>
-        <%= link_to 'Voltar', :back %>
-      </div>
-    <% else %>
-
-    Voce comprou as cotas.
+      Voce comprou as cotas.
 
 
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
