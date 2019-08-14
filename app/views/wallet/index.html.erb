@@ -11,7 +11,7 @@
     <div class='col-xl-12'>
       <table class="table">
         <thead class="thead-dark">
-          <tr>
+          <tr class="text-center">
             <th scope="col">Companhia</th>
             <th scope="col">Quantidade</th>
             <th scope="col">Valor pago</th>
@@ -28,7 +28,7 @@
             price_to_sell = (quote.quantity.round(2) * quote.current_price.round(2)).round(2)
 
           %>
-          <tr>
+          <tr class="text-center">
             <td><%= biz.name %> (<%= biz.initials %>)</td>
             <td><%= quote.quantity %></td>
             <td>$<%= quote.purchased_value %></td>

@@ -15,7 +15,7 @@
 
       <table class="table">
         <thead class="thead-dark">
-          <tr>
+          <tr class="text-center">
             <th scope="col">Sigla</th>
             <th scope="col">Nome da companhia</th>
             <th scope="col">Preço Atual</th>
@@ -28,14 +28,14 @@
         <tbody>
           <% @business.each do |business| 
             valueHistory = business.value_history %>
-          <tr>
+          <tr class="text-center">
             <td><%= business.initials %></td>
             <td><%= business.name %></td>
             <td>$<%= action_value(valueHistory) %></td>
             <td><%= calculate_movimentation(valueHistory).round(2) %></td>
             <td><%= calculate_variation(valueHistory) %>% <%= define_icon(valueHistory) %></td>
             <td><%= business.available_quotes %></td>
-            <td><%= link_to 'Mais detalhes >>', "../business/#{business.id}" %> </td>
+            <td><%= link_to 'Mais detalhes >>', "../business/#{business.id}", :class => 'btn btn-dark btn-sm' %> </td>
           </tr>
           <% end %>
         </tbody>
