@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   # Buy quotes
   post 'quote/buy_quote/:id' => 'quotes#buy_quote'
+  get 'quote/buy_quote/:id', to: redirect('/wallet/1')
 
   # My Quotes
   get 'wallet/:page', to: 'wallet#index', only: [:index], param: :page
