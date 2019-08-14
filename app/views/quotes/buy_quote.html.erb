@@ -6,7 +6,7 @@
         O valor da ação foi atulizado!! <br/>
         Retorne a página e realize a compra novamente para concluir.<br/>
         <br/>
-        <%= link_to 'Voltar', back %>
+        <%= link_to 'Voltar', :back %>
       </div>
     <% elsif @error == 'dont_logged' %>
       <div class="alert alert-danger" role="alert">
@@ -17,13 +17,13 @@
         Essa ação não tem este número de cotas para vender. <br/>
         Pode ser que em quanto você estava na página, alguém comprou cotas desta ação.<br/>
         <br/>
-        <%= link_to 'Voltar', back %>
+        <%= link_to 'Voltar', :back %>
       </div>
     <% elsif @error == 'not_have_money' %>
       <div class="alert alert-danger" role="alert">
         Você não tem dinheiro o suficiente para comprar as cotas desta ação. <br/>
         <br/>
-        <%= link_to 'Voltar', back %>
+        <%= link_to 'Voltar', :back %>
       </div>
     <% else %>
 
