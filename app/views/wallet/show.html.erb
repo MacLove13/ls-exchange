@@ -1,0 +1,42 @@
+<div class="container mt-4 pb-4" style="background-color: #FFFFFF; border-radius: 7px;">
+  <div class='row pt-3 pb-3'>
+    <div class='col-md-4'></div>
+    <div class='col-md-4 text-center'><h4>Minhas de Ações</h4></div>
+    <div class="col-md-4 text-right">
+      <%= link_to 'Mercado de ações', '/all_business/1', :class => 'btn btn-success' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class='col-xl-12'>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr class="text-center">
+            <th scope="col">Companhia</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Valor pago</th>
+            <th scope="col">Preço Atual</th>
+            <th scope="col">Lucro</th>
+            <th scope="col">Vender</th>
+            <th scope="col">Visitar</th>
+          </tr>
+        </thead>
+        <tbody class="table-hover">
+          <% 
+            @quotes.each do |quote| 
+            biz = quote.business 
+            price_to_sell = (quote.quantity.round(2) * quote.current_price.round(2)).round(2)
+
+          %>
+          <tr class="text-center">
+            <td><%= biz.name %> (<%= biz.initials %>)</td>
+            <td><%= quote.quantity %></td>
+            <td>$<%= quote.purchased_value %></td>
+            <td>$<%= quote.current_price %></td>
+            <td>$<%= calculate_gain(quote.quantity, quote.purchased_value, quote.current_price) %> </td>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

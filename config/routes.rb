@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/admin/edit_user/:id', to: 'users#admin_edit', param: :id
   post '/admin/update_user/:id' => 'users#update_user'
   get 'admin/update_user/:id', to: redirect('/admin/users')
+  get 'admin/wallet/:id', to: 'wallet#show'
 
   # Buy quotes
   post 'quote/buy_quote/:id' => 'quotes#buy_quote'
