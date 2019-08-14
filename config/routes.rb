@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # business
   get 'business/:id', to: 'business#show', param: :id
-  get 'all_business/:page', to: 'business#index', only: [:index]
+  get 'all_business/:page', to: 'business#index', only: [:index], param: :page
 
   # Other pages
   get 'landing_page/index'
