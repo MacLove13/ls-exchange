@@ -58,6 +58,9 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li class="nav-item">
+                      <%= link_to 'Dashboard', '/admin/dashboard', :class => 'nav-link' %>
+                    </li>
+                    <li class="nav-item">
                       <%= link_to 'Usuários', admin_users_path, :class => 'nav-link' %>
                     </li>
                 </ul>
