@@ -21,7 +21,11 @@
   <body>
     <%= render template: "layouts/header.html.erb" %>
 
-    <%= yield %>
+    <div class="container-fluid">
+      <div class="row wrapper">
+        <%= yield %>
+      </div>
+    </div>
 
     <%= render template: "layouts/adsense.html.erb" %>
     <%= render template: "layouts/footer.html.erb" %>
