@@ -16,7 +16,7 @@ class QuotesController < ApplicationController
 
     total_price = buy_quantity * historyValue.value
 
-    return @error = 'not_have_money' if current_user.money < total_price
+    return @error = 'not_have_money' if current_user.money.nil? || current_user.money < total_price
 
     Quote.create(
       owner_id: current_user.id,
