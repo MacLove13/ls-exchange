@@ -24,7 +24,7 @@
           Cadastre-se já e começe a investir o seu dinheiro, torne seus sonhos uma realidade!
         <br/>
         <br/>
-        <%= button_to "Criar conta", new_user_registration_path, :class => 'btn btn-warning' %>
+        <%= link_to "Criar conta", new_user_registration_path, :class => 'btn btn-warning' %>
         <% else %>
           Olá <%= current_user.name %>, é um prazer tê-lo como nosso cliente!
         <% end %>
