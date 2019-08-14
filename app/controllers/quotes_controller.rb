@@ -8,7 +8,7 @@ class QuotesController < ApplicationController
   	buy_value = params[:buy_value].to_f
 
     return @error = 'dont_logged' if !user_signed_in?
-  	return @error = 'not_have_quotes_quantity' if buy_quantity > business.verify_available_quotes
+  	return @error = 'not_have_quotes_quantity' if buy_quantity > business.verify_available_quotes || buy_quantity < 1
 
   	historyValue = history_value(business.id)
 
