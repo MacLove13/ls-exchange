@@ -1,225 +1,197 @@
-<body style="background-color: #EFEFEF">
-  <div class="container" style="background-color: #FFFFFF">
-    <div class="row">
+<div class="container mt-4" style="background-color: #FFFFFF">
+  <div class="row ml-1 mr-1">
+    
+    <div class='col-md-12' style="margin-top: 15px;">
+      <div class="row">
 
-      <div class='col-md-12' style="margin-top: 15px;">
-        <div class='col-xl-1'></div>
-        <div class='col-xl-10' style="
+        <div class='col-md-12' style="
           background-color: #F1F1F1; 
           font-size: 24px; 
           font-family: Arial, Helvetica, sans-serif;
           padding-top: 15px;
           padding-bottom: 15px;
-          padding-left: 20px;
-        ">
-          <div class='col-xl-7'>
-            <%= @business.name %> (<%= @business.initials %>)
-          </div>
-          <div class='col-xl-5'>
+          padding-left: 20px;">
+          <div class="row">
+            <div class='col-md-7'>
+              <%= @business.name %> (<%= @business.initials %>)
+            </div>
+            <div class='col-md-5'>
+            </div>
           </div>
         </div>
-        <div style="margin-top: 10px;"></div>
-        <div class='col-xl-10' style="padding-left: 20px;">
+      </div>
+      <div class="row">
+        <div class='col-md-12 mt-2'>
           Protecting your rights! America's First Choice in Domestic Ordinance!
         </div>
       </div>
 
-    	<div class='col-md-12' style="margin-top: 50px;">
-        <div class='col-md-6' style="background-color: #FAFAFA; padding-bottom: 20px; padding-top: 20px;">
-            <center><b>ÚLTIMA HORA</b></center><br/>
+    	<div class="row justify-content-between mt-5">
+        <div class='col-md-6 pt-3' style="background-color: #FAFAFA;">
+          <center><b>ÚLTIMA HORA</b></center><br/>
 
-      			<%= line_chart generate_graph_date, 
-              legend: false, 
-              curve: false, 
-              prefix: "$", 
-              height: "200px", 
-              label: "Valor",
-              points: false,
-              messages: {empty: "No data"},
-              min: min_value_graph, 
-              max: max_value_graph
-      			%>
-            <center><font size="1px" >( Você pode passar o mouse sobre o gráfico para ver os valores )</font></center>
-          </div>
-          <div class='col-md-1'></div>
-          <div class='col-md-5' style='background-color: #FAFAFA; padding-bottom: 20px; padding-top: 20px;'>
-            <div class="row">
-              <div class='col-xl-12' style='background-color: #2A2A2A; color: #FFF; margin-top: -20px; padding-bottom: 2px; padding-top: 8px;'>
-                <p style='padding-left: 10px;'>Stock Information</p>
-              </div>
-            </div>
-            <div class="row" style="margin-top: 15px;">
-              <div class='col-md-4'>
-                  <%
-                      graph_hours_data = generate_grapt_five_hours_date
-
-                      variation = calculate_variation(@business.value_history)
-
-                      valuesHistory_two = @business.value_history.order('id DESC').limit(2)
-
-                      first = valuesHistory_two.last
-                      last_history = valuesHistory_two.first
-                    %>
-
-                  <%= @business.initials %> <br/>
-                  $<%= last_history.value %>
-                  <br/>
-                  <br/>
-                  Variação:
-                  <br/>
-                  <%= define_icon(@business.value_history) %> <%= variation %>
-              </div>
-              <div class='col-md-8'>
-                <font size="1px" >Informações referentes as últimas 12 horas</font>
-                <table class="table">
-                  <tbody>
-                    <tr style="background-color: #F3F3F3">
-                      <th scope="row">Maior</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>$<%= max_value_five_hours %></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Menor</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>$<%= min_value_five_hours %></td>
-                    </tr>
-                    <tr style="background-color: #F3F3F3">
-                      <th scope="row">Atual</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>$<%= last_history.value %></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Ultimo</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>$<%= first.value %></td>
-                    </tr>
-                    <tr style="background-color: #F3F3F3">
-                      <th scope="row">Variação</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>$<%= calculate_movimentation(@business.value_history).round(2) %></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-
-
-
-          </div>
+    			<%= line_chart generate_graph_date, 
+            legend: false, 
+            curve: false, 
+            prefix: "$", 
+            height: "200px", 
+            label: "Valor",
+            points: false,
+            messages: {empty: "No data"},
+            min: min_value_graph, 
+            max: max_value_graph
+    			%>
+          <center><font size="1px" >( Você pode passar o mouse sobre o gráfico para ver os valores )</font></center>
         </div>
 
-        <div class='col-md-12' style="margin-top: 50px;">
-          <div class='col-md-6' style="background-color: #FAFAFA; padding-bottom: 20px; padding-top: 20px;">
-            <center><b>ÚLTIMAS 12 HORAS</b></center><br/>
-
-            <%= line_chart graph_hours_data, 
-              legend: false,
-              min: min_value_five_hours_graph, 
-              max: max_value_five_hours_graph,
-              prefix: "$",
-              curve: false, 
-              points: false,
-              messages: {empty: "No data"},
-              height: "200px",
-              label: "Valor"
-              %>
-              <center><font size="1px" >( Você pode passar o mouse sobre o gráfico para ver os valores )</font></center>
+        <div class='col-md-5' style='background-color: #FAFAFA;'>
+          
+          <div class="row">
+            <div class='col-md-12' style='background-color: #2A2A2A;'>
+                  <p class="text-left pt-2 text-center text-white">Stock Information</p>
+            </div>
           </div>
-          <div class='col-md-1'></div>
-          <div class='col-md-5' style='background-color: #FAFAFA; padding-bottom: 20px; padding-top: 20px;'>
-            
-            <div class="row">
-              <div class='col-xl-12' style='background-color: #2A2A2A; color: #FFF; margin-top: -20px; padding-bottom: 2px; padding-top: 8px;'>
-                <p style='padding-left: 10px;'>Mercado</p>
-              </div>
+
+          <div class="row pt-3">
+            <div class='col-md-4'>
+                <%
+                    graph_hours_data = generate_grapt_five_hours_date
+
+                    variation = calculate_variation(@business.value_history)
+
+                    valuesHistory_two = @business.value_history.order('id DESC').limit(2)
+
+                    first = valuesHistory_two.last
+                    last_history = valuesHistory_two.first
+                  %>
+
+                <%= @business.initials %> <br/>
+                $<%= last_history.value %>
+                <br/>
+                <br/>
+                Variação:
+                <br/>
+                <%= define_icon(@business.value_history) %> <%= variation %>
             </div>
-            <div class="row" style="margin-top: 15px;">
-              <div class='col-md-5'>
-                  <%
-                      graph_hours_data = generate_grapt_five_hours_date
-
-                      variation = calculate_variation(@business.value_history)
-
-                      valuesHistory = @business.value_history.order('id DESC').limit(2).reverse
-                      first = valuesHistory.first
-                      last_history = valuesHistory.last
-                    %>
-                  <b>Cotas disponíveis:</b> <br/>
-                  <%= biz_available_quotes %> <br/><br/>
-                  <b>Valor:</b> <br/> 
-                  $<%= last_history.value %> <br/>
-                  <p style=" font-size: 2mm" >( Este valor pode sofrer alterações caso você passe muito tempo nesta tela )</p>
-
-              </div>
-              <div class='col-md-7'>
-                
-                <%= form_tag "../quote/buy_quote/#{@business.id}" do |f| %>
-                  <div class="form-group">
-                    Quantidade a comprar:
-
-                    <% if user_signed_in? %>
-                      <%= number_field_tag :buy_quantity, 0, min: 1, max: biz_available_quotes, :class => 'form-control' %>
-                    <% else %>
-                      <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Você precisa estar logado">
-                        <%= number_field_tag :buy_quantity, 0, min: 1, max: biz_available_quotes, :class => 'form-control', disabled: true %>
-                      </span>
-                    <% end %>
-
-                    <%= hidden_field_tag :buy_value, last_history.value %>
-                  </div>
-                  <div class="actions">
-                    <% if user_signed_in? %>
-                      <%= submit_tag "Comprar", :class => 'btn btn-success float-right' %>
-                    <% else %>
-                    <span class="d-inline-block" tabindex="1" data-toggle="tooltip" title="Você precisa estar logado">
-                      <%= submit_tag "Comprar", { :class => 'btn btn-success float-right', disabled: true } %>
-                    </span>
-                    <% end %>
-                  </div>
-                <% end %>
-              </div>
+            <div class='col-md-8'>
+              <font size="1px" >Informações referentes as últimas 12 horas</font>
+              <table class="table">
+                <tbody>
+                  <tr style="background-color: #F3F3F3">
+                    <th scope="row">Maior</th>
+                    <td>$<%= max_value_five_hours %></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Menor</th>
+                    <td>$<%= min_value_five_hours %></td>
+                  </tr>
+                  <tr style="background-color: #F3F3F3">
+                    <th scope="row">Atual</th>
+                    <td>$<%= last_history.value %></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Ultimo</th>
+                    <td>$<%= first.value %></td>
+                  </tr>
+                  <tr style="background-color: #F3F3F3">
+                    <th scope="row">Variação</th>
+                    <td>$<%= calculate_movimentation(@business.value_history).round(2) %></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <% if user_signed_in? %>
-              <div class="row">
-                <div class='col-md-12' style="width: 100%; height: 1px; background-color: #6A6A6A;"></div>
-                <div class='col-md-12' style="font-size: 12px; margin-top: 10px;">
-                  Você tem <%= current_user.business_quotes(@business.id).sum('quantity') %> cotas desta ação. <br/>
-
-                  <%= link_to "Gerenciar minhas ações >>", "/wallet/1", :class => "btn btn-secondary btn-sm" %>
-                </div>
-              </div>
-            <% end %>
-
           </div>
         </div>
-
-        <div class='col-md-12' style="margin-top: 50px;"></div>
+      </div>
     </div>
   </div>
-</body>
+
+  <div class="row ml-1 mr-1 pb-4">
+    <div class='col-md-12' style="margin-top: 50px;">
+
+      <div class="row justify-content-between">
+        <div class='col-md-6 pb-3 pt-3' style="background-color: #FAFAFA;">
+          <center><b>ÚLTIMAS 12 HORAS</b></center><br/>
+          <%= line_chart graph_hours_data, 
+            legend: false,
+            min: min_value_five_hours_graph, 
+            max: max_value_five_hours_graph,
+            prefix: "$",
+            curve: false, 
+            points: false,
+            messages: {empty: "No data"},
+            height: "200px",
+            label: "Valor"
+            %>
+          <center>
+            <font size="1px" >( Você pode passar o mouse sobre o gráfico para ver os valores )</font>
+          </center>
+        </div>
+        <div class='col-md-5 pb-3' style='background-color: #FAFAFA;'>  
+          <div class="row">
+            <div class='col-xl-12' style='background-color: #2A2A2A;'>
+              <p class="text-left pt-2 text-center text-white">Mercado</p>
+            </div>
+          </div>
+          <div class="row pt-3">
+            <div class='col-md-5'>
+              <%
+                graph_hours_data = generate_grapt_five_hours_date
+
+                variation = calculate_variation(@business.value_history)
+
+                valuesHistory = @business.value_history.order('id DESC').limit(2).reverse
+                first = valuesHistory.first
+                last_history = valuesHistory.last
+              %>
+              <b>Cotas disponíveis:</b> <br/>
+              <%= biz_available_quotes %> <br/><br/>
+              <b>Valor:</b> <br/> 
+              $<%= last_history.value %> <br/>
+              <p style=" font-size: 2mm" >( Este valor pode sofrer alterações caso você passe muito tempo nesta tela )</p>
+            </div>
+            
+            <div class='col-md-7'>  
+              <%= form_tag "../quote/buy_quote/#{@business.id}" do |f| %>
+                <div class="form-group">
+                  Quantidade a comprar: <br/>
+
+                  <% if user_signed_in? %>
+                    <%= number_field_tag :buy_quantity, 0, min: 1, max: biz_available_quotes, :class => 'form-control' %>
+                  <% else %>
+                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Você precisa estar logado">
+                      <%= number_field_tag :buy_quantity, 0, min: 1, max: biz_available_quotes, :class => 'form-control', disabled: true %>
+                    </span>
+                  <% end %>
+
+                  <%= hidden_field_tag :buy_value, last_history.value %>
+                </div>
+                <div class="actions">
+                  <% if user_signed_in? %>
+                    <%= submit_tag "Comprar", :class => 'btn btn-success float-right' %>
+                  <% else %>
+                  <span class="d-inline-block" tabindex="1" data-toggle="tooltip" title="Você precisa estar logado">
+                    <%= submit_tag "Comprar", { :class => 'btn btn-success float-right', disabled: true } %>
+                  </span>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          
+          <% if user_signed_in? %>
+            <div class="row">
+              <hr/>
+              <div class='col-md-12' style="font-size: 12px; margin-top: 10px;">
+                Você tem <%= current_user.business_quotes(@business.id).sum('quantity') %> cotas desta ação. <br/>
+
+                <%= link_to "Gerenciar minhas ações >>", "/wallet/1", :class => "btn btn-secondary btn-sm" %>
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

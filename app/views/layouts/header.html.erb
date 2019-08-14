@@ -12,34 +12,50 @@
           <li class="nav-item"><a class='nav-link' href="#">Como funciona?</a></li>
         </ul>
     </div>
-    <div class="navbar-collapse collapse w-50 order-2 dual-collapse2">
+    <div class="navbar-collapse collapse w-100 order-2 dual-collapse2">
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
             <ul class="nav navbar-nav">
-              <li><a href="#">Olá <%= current_user.name %></a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Olá <%= current_user.name %></a></li>
               <li class="nav-item dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Carteira: <strong>$<%= current_user.money ? current_user.money : '0.00' %></strong> <span class="caret"></span></a>
+                <a class="nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Carteira: <strong>$<%= current_user.money ? current_user.money : '0.00' %></strong> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Bloqueado: <strong>$<%= current_user.blocked_money ? current_user.blocked_money : '0.00' %></strong></a></li>
-                    <li><a href="#"><%= link_to 'Histórico', '#', :class => 'navbar-link' %></a></li>
-                    <li><a href="#"><%= link_to 'Solicitações de saque', '#', :class => 'navbar-link' %></a></li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        Bloqueado: <strong>$<%= current_user.blocked_money ? current_user.blocked_money : '0.00' %></strong>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to 'Histórico', '#', :class => 'nav-link' %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to 'Solicitações de saque', '#', :class => 'nav-link' %>
+                    </li>
                     
                 </ul>
               </li>
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Área do Cliente <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><%= link_to 'Minha carteira', '/wallet/1', :class => 'navbar-link' %></a></li>
-                    <li><a href="#"><%= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link' %></a></li>
-                    <li><a href="#"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></a></li>
+                    <li class="nav-item">
+                      <%= link_to 'Minha carteira', '/wallet/1', :class => 'nav-link' %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'nav-link' %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
+                    </li>
                     
                 </ul>
               </li>
               <% if is_admin? %>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><%= link_to 'Usuários', admin_users_path, :class => 'navbar-link' %></a></li>
+                    <li class="nav-item">
+                      <%= link_to 'Usuários', admin_users_path, :class => 'nav-link' %>
+                    </li>
                 </ul>
               </li>
               <% end %>
