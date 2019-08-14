@@ -17,7 +17,7 @@
             <th scope="col">Valor pago</th>
             <th scope="col">Preço Atual</th>
             <th scope="col">Lucro</th>
-            <th scope="col">Vender</th>
+            <th scope="col">Valor total</th>
             <th scope="col">Visitar</th>
           </tr>
         </thead>
@@ -34,6 +34,10 @@
             <td>$<%= quote.purchased_value %></td>
             <td>$<%= quote.current_price %></td>
             <td>$<%= calculate_gain(quote.quantity, quote.purchased_value, quote.current_price) %> </td>
+            <td>$<%= price_to_sell %></td>
+            <td><%= link_to "Ver no mercado >>", "/business/#{quote.business_id}", :class => "btn btn-dark btn-sm" %> </td>
+          </tr>
+          <% end %>
         </tbody>
       </table>
 
