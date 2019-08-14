@@ -16,7 +16,7 @@ class AdminController < ApplicationController
   		lucro_total = 0
 
   		total_spend = (quote.purchased_value * quote.quantity)
-    	actual_value = (quote.current_value * quote.quantity)
+    	actual_value = (quote.current_price * quote.quantity)
 
   		lucro_total = (actual_value - total_spend).round(2)
 
