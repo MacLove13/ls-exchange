@@ -56,13 +56,18 @@ class QuotesController < ApplicationController
     current_user.money = (current_user.money + total_value).round(2)
     current_user.save
 
-    quote.delete
-
     @business_name = business.name
     @total_price = total_value
     @sell_quantity = quote.quantity
 
     Rails.logger.info("#{current_user.name} vendeu #{quote.quantity} ações da #{business.name} (#{business.id}) por $#{sell_value} cada. Total: #{total_value}")
+  
+    avail_quotes = business.available_quotes + quote.quantity
+    purch_quotes = business.purchased_quotes - quote.quantity
+
+    business.update_attributes(available_quotes: avail_quotes, purchased_quotes: purch_quotes)
+
+    quote.delete
   end
 
   private
