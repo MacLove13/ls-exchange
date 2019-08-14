@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       p params[:search]
       @users = User.search(params[:search])
     else
-      @users = User.all
+      @users = User.all.order('id ASC')
     end
   end
 
