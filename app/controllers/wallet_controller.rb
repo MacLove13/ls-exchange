@@ -2,7 +2,7 @@ class WalletController < ApplicationController
 	def show
     return @error = 'dont_logged' if !user_signed_in? ||current_user.admin?
 
-    @quotes = Quote.where(owner_id: params[:id]).page(1)
+    @quotes = Quote.where(owner_id: params[:id])
 	end
 
   def index
