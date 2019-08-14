@@ -1,0 +1,43 @@
+<div class="container mt-4 pb-4">
+  <div class="row pt-3 pb-3">
+    <div class="col-md-12">
+      <% if @error == 'sell_value' %>
+        <div class="alert alert-danger text-center" role="alert">
+          O valor da ação foi atulizado!! <br/>
+          Retorne a página e realize a venda novamente para concluir.<br/>
+          <br/>
+          <%= link_to 'Voltar', :back %>
+        </div>
+      <% elsif @error == 'dont_logged' %>
+        <div class="alert alert-danger text-center" role="alert">
+          Você precisa estar logado para realizar uma venda.
+        </div>
+      <% else %>
+
+        <div class="row justify-content-md-center">
+          <div class="col-md-6 pt-3 pb-3" style="background-color: #FFF; border-radius: 7px;">
+            
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <h1>Venda de Ação</h1>
+                <hr/>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                Parabéns, você vendeu <b><%= @sell_quantity %></b> cotas do(a) <b><%= @business_name %></b> por <b>$<%= @total_price %></b>!
+                <br/>
+                <br/>
+                Você pode administrar sua ações indo em <b>Carteira -> Minhas ações</b>.
+                <br/>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

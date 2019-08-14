@@ -40,6 +40,31 @@ class QuotesController < ApplicationController
     Rails.logger.info("#{current_user.name} comprou #{buy_quantity} ações da #{business.name} (#{business.id}) por $#{buy_value} cada. Total: #{total_price}")
   end
 
+  def sell_quote
+    quote = Quote.find(params[:id])
+    business = Business.find(quote.business_id)
+    sell_value = params[:sell_value].to_f
+
+    return @error = 'dont_logged' if !user_signed_in?
+
+    historyValue = history_value(business.id)
+
+    return @error = "sell_value" if sell_value != historyValue.value
+
+    total_value = quote.quantity * historyValue.value
+
+    current_user.money = (current_user.money + total_value).round(2)
+    current_user.save
+
+    quote.delete
+
+    @business_name = business.name
+    @total_price = total_value
+    @sell_quantity = quote.quantity
+
+    Rails.logger.info("#{current_user.name} vendeu #{quote.quantity} ações da #{business.name} (#{business.id}) por $#{sell_value} cada. Total: #{total_value}")
+  end
+
   private
 
   def history_value(business_id)

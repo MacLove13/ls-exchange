@@ -17,10 +17,15 @@ Rails.application.routes.draw do
   get '/admin/user/:id', to: 'users#show'
   get '/admin/edit_user/:id', to: 'users#admin_edit', param: :id
   post '/admin/update_user/:id' => 'users#update_user'
+  get 'admin/update_user/:id', to: redirect('/admin/users')
 
   # Buy quotes
   post 'quote/buy_quote/:id' => 'quotes#buy_quote'
   get 'quote/buy_quote/:id', to: redirect('/wallet/1')
+
+  # Sell quotes
+  post 'quote/sell_quote/:id' => 'quotes#sell_quote'
+  get 'quote/sell_quote/:id', to: redirect('/wallet/1')
 
   # My Quotes
   get 'wallet/:page', to: 'wallet#index', only: [:index], param: :page
