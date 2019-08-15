@@ -1,6 +1,10 @@
 class WalletController < ApplicationController
 	def show
-    return @error = 'Você não está logado ou não tem permissão para ver essa página' if !user_signed_in? || !current_user.admin?
+    if !user_signed_in? || !current_user.admin?
+
+      redirect_to root_path
+      return
+    end
 
     @user = User.find_by(id: params[:id])
 
@@ -12,7 +16,11 @@ class WalletController < ApplicationController
 	end
 
   def index
-  	return @error = 'dont_logged' if !user_signed_in? || !current_user.admin?
+  	if !user_signed_in?
+
+      redirect_to root_path
+      return
+    end 
 
   	@quotes = Quote.where(owner_id: current_user.id).page(params[:page])
   end
