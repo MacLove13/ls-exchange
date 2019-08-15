@@ -23,7 +23,7 @@
           </tr>
         </thead>
         <tbody class="table-hover">
-          <% if @quotes.present? || @quotes.count > 0 %>
+          <% if @quotes.present? && @quotes.count > 0 %>
 
             @quotes.each do |quote| 
             biz = quote.business 
