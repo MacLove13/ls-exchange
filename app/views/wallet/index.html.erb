@@ -27,15 +27,15 @@
 
           <%  @quotes.each do |quote| 
               biz = quote.business 
-              price_to_sell = (quote.quantity.round(2) * quote.current_price.round(2)).round(2)
+              price_to_sell = number_to_currency_br(quote.quantity.round(2) * quote.current_price.round(2)).round(2))
 
           %>
             <tr class="text-center">
               <td><%= biz.name %> (<%= biz.initials %>)</td>
               <td><%= quote.quantity %></td>
-              <td>$<%= quote.purchased_value %></td>
-              <td>$<%= quote.current_price %></td>
-              <td>$<%= calculate_gain(quote.quantity, quote.purchased_value, quote.current_price) %> </td>
+              <td><%= number_to_currency_br(quote.purchased_value) %></td>
+              <td><%= number_to_currency_br(quote.current_price) %></td>
+              <td><%= number_to_currency_br(calculate_gain(quote.quantity, quote.purchased_value, quote.current_price)) %> </td>
               <td>
                 <%= form_tag "/quote/sell_quote/#{quote.id}" do |f| %>
                   <%= hidden_field_tag :sell_value, quote.current_price %>
