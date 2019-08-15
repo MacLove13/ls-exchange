@@ -24,7 +24,7 @@ class AdminController < ApplicationController
 
       @total_gain = (@total_gain + lucro_total).round(2)
       @total_quotes_purchased = @total_quotes_purchased + quote.quantity
-      @total_quotes_price = @total_quotes_price + (quote.quantity * quote.purchased_value)
+      @total_quotes_price = (@total_quotes_price + (quote.quantity * quote.purchased_value)).round(2)
   	end
 
   	@available_quotes = Business.sum('available_quotes')
