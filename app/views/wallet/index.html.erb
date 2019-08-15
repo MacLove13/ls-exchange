@@ -25,9 +25,9 @@
         <tbody class="table-hover">
           <% if @quotes.present? && @quotes.count > 0 %>
 
-            @quotes.each do |quote| 
-            biz = quote.business 
-            price_to_sell = (quote.quantity.round(2) * quote.current_price.round(2)).round(2)
+          <%  @quotes.each do |quote| 
+              biz = quote.business 
+              price_to_sell = (quote.quantity.round(2) * quote.current_price.round(2)).round(2)
 
           %>
             <tr class="text-center">
