@@ -35,10 +35,10 @@
           <tr class="text-center">
             <td><%= biz.name %> (<%= biz.initials %>)</td>
             <td><%= quote.quantity %></td>
-            <td><%= number_to_currency(quote.purchased_value) %></td>
-            <td><%= number_to_currency(quote.current_price) %></td>
-            <td><%= number_to_currency(calculate_gain(quote.quantity, quote.purchased_value, quote.current_price)) %> </td>
-            <td><%= number_to_currency(price_to_sell) %></td>
+            <td><%= number_to_currency_br(quote.purchased_value) %></td>
+            <td><%= number_to_currency_br(quote.current_price) %></td>
+            <td><%= number_to_currency_br(calculate_gain(quote.quantity, quote.purchased_value, quote.current_price)) %> </td>
+            <td><%= number_to_currency_br(price_to_sell) %></td>
             <td><%= link_to "Ver no mercado >>", "/business/#{quote.business_id}", :class => "btn btn-dark btn-sm" %> </td>
           </tr>
           <% end %>
