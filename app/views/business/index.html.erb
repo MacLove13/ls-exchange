@@ -31,8 +31,8 @@
           <tr class="text-center">
             <td><%= business.initials %></td>
             <td><%= business.name %></td>
-            <td>$<%= action_value(valueHistory) %></td>
-            <td><%= calculate_movimentation(valueHistory).round(2) %></td>
+            <td><%= number_to_currency_br(action_value(valueHistory)) %></td>
+            <td><%= number_to_currency_br(calculate_movimentation(valueHistory).round(2)) %></td>
             <td><%= calculate_variation(valueHistory) %>% <%= define_icon(valueHistory) %></td>
             <td><%= business.available_quotes %></td>
             <td><%= link_to 'Mais detalhes >>', "../business/#{business.id}", :class => 'btn btn-dark btn-sm' %> </td>

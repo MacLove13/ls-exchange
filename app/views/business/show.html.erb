@@ -66,7 +66,7 @@
                   %>
 
                 <%= @business.initials %> <br/>
-                $<%= last_history.value %>
+                <%= number_to_currency_br(last_history.value) %>
                 <br/>
                 <br/>
                 Variação:
@@ -79,23 +79,23 @@
                 <tbody>
                   <tr style="background-color: #F3F3F3">
                     <th scope="row">Maior</th>
-                    <td>$<%= max_value_five_hours %></td>
+                    <td><%= number_to_currency_br(max_value_five_hours) %></td>
                   </tr>
                   <tr>
                     <th scope="row">Menor</th>
-                    <td>$<%= min_value_five_hours %></td>
+                    <td><%= number_to_currency_br(min_value_five_hours) %></td>
                   </tr>
                   <tr style="background-color: #F3F3F3">
                     <th scope="row">Atual</th>
-                    <td>$<%= last_history.value %></td>
+                    <td><%= number_to_currency_br(last_history.value) %></td>
                   </tr>
                   <tr>
                     <th scope="row">Ultimo</th>
-                    <td>$<%= first.value %></td>
+                    <td><%= number_to_currency_br(first.value) %></td>
                   </tr>
                   <tr style="background-color: #F3F3F3">
                     <th scope="row">Variação</th>
-                    <td>$<%= calculate_movimentation(@business.value_history).round(2) %></td>
+                    <td><%= number_to_currency_br(calculate_movimentation(@business.value_history).round(2)) %></td>
                   </tr>
                 </tbody>
               </table>
@@ -149,7 +149,7 @@
               <b>Cotas disponíveis:</b> <br/>
               <%= biz_available_quotes %> <br/><br/>
               <b>Valor:</b> <br/> 
-              $<%= last_history.value %> <br/>
+              <%= number_to_currency_br(last_history.value) %> <br/>
               <p style=" font-size: 2mm" >( Este valor pode sofrer alterações caso você passe muito tempo nesta tela )</p>
             </div>
             
