@@ -7,9 +7,9 @@ class AdminController < ApplicationController
   	end 
 
   	lucro_total = 0
-    total_quotes = 0
     @total_quotes_purchased = 0
   	@total_gain = 0
+    @total_quotes_price = 0
 
   	@quotes = Quote.all
 
@@ -22,8 +22,8 @@ class AdminController < ApplicationController
 
   		lucro_total = (actual_value - total_spend).round(2)
 
-      @total_quotes_purchased = total_quotes + quote.quantity
-
+      @total_quotes_purchased = @total_quotes_purchased + quote.quantity
+      @total_quotes_price = @total_quotes_price + (quote.quantity * quote.purchased_value)
   	end
 
   	@total_gain = @total_gain + lucro_total
@@ -38,7 +38,7 @@ class AdminController < ApplicationController
 
   	@wallet_total_money = User.sum('money')
 
-
+    @total_users = User.count
   	
   end
 end
