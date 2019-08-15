@@ -22,7 +22,7 @@ class AdminController < ApplicationController
 
   		lucro_total = (actual_value - total_spend).round(2)
 
-      @total_gain = @total_gain + lucro_total
+      @total_gain = (@total_gain + lucro_total).round(2)
       @total_quotes_purchased = @total_quotes_purchased + quote.quantity
       @total_quotes_price = @total_quotes_price + (quote.quantity * quote.purchased_value)
   	end
