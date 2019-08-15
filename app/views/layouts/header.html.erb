@@ -20,7 +20,7 @@
               <li class="nav-item dropdown">
                 
 
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Carteira: <strong>$<%= current_user.money ? current_user.money : '0.00' %></strong> <span class="caret"></span></a>
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Carteira: <strong><%= current_user.money ? number_to_currency(current_user.money) : '$0.00' %></strong> <span class="caret"></span></a>
 
 
                 <ul class="dropdown-menu">
