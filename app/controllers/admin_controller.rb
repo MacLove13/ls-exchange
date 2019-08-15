@@ -27,8 +27,8 @@ class AdminController < ApplicationController
       @total_quotes_price = @total_quotes_price + (quote.quantity * quote.purchased_value)
   	end
 
-  	@available_quotes = Business.all.sum('available_quotes')
-  	purch = Business.all.sum('purchased_quotes')
+  	@available_quotes = Business.sum('available_quotes')
+  	purch = Business.sum('purchased_quotes')
   	total_quotes = @available_quotes + purch
 
   	@total_quotes_all = (@quotes.count * 100) / total_quotes
