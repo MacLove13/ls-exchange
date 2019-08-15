@@ -7,6 +7,7 @@ class AdminController < ApplicationController
   	end 
 
   	lucro_total = 0
+    total_quotes = 0
     @total_quotes_purchased = 0
   	@total_gain = 0
 
