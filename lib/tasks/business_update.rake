@@ -9,8 +9,8 @@ namespace :business do
   		history = lastHistory.last
   		value = history.value
 
-  		value_max = value + rand * rand(15)
-  		value_min = value - rand * rand(15)
+  		value_max = value + rand * rand(12)
+  		value_min = value - rand * rand(12)
 
   		# Critical Change
   		# ===============================================================
