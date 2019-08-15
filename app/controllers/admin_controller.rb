@@ -36,6 +36,8 @@ class AdminController < ApplicationController
   	@percent = @total_quotes_all.to_s + '%'
 
   	@wallet_total_money = User.sum('money')
+
+    @total_users User.count
   	
   end
 end
