@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    return @Error = 'Você não tem acesso a esta página' if !user_signed_in? || !current_user.admin?
+    return @Error = 'Você não tem acesso a esta página' if !user_signed_in?
+    if !user_signed_in? || !current_user.admin?
+      redirect_to root_path
+      return
+    end 
 
     if params[:search]
       p params[:search]
@@ -14,12 +18,20 @@ class UsersController < ApplicationController
 
   def admin_edit
     return @Error = 'Você não tem acesso a esta página' if !user_signed_in? || !current_user.admin?
+    if !user_signed_in? || !current_user.admin?
+      redirect_to root_path
+      return
+    end 
 
     @user = User.find(params[:id])
   end
 
   def update_user
     return @Error = 'Você não tem acesso a esta página' if !user_signed_in? || !current_user.admin?
+    if !user_signed_in? || !current_user.admin?
+      redirect_to root_path
+      return
+    end 
 
     user = User.find(params[:id])
 
@@ -35,6 +47,10 @@ class UsersController < ApplicationController
 
   def show
     return @Error = 'Você não tem acesso a esta página' if !user_signed_in? || !current_user.admin?
+    if !user_signed_in? || !current_user.admin?
+      redirect_to root_path
+      return
+    end 
 
 	  @user = User.find(params[:id])
   end
