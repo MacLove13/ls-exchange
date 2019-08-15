@@ -27,7 +27,7 @@
 
           <%  @quotes.each do |quote| 
               biz = quote.business 
-              price_to_sell = number_to_currency_br(quote.quantity.round(2) * quote.current_price.round(2)).round(2))
+              price_to_sell = number_to_currency_br((quote.quantity * quote.current_price).round(2))
 
           %>
             <tr class="text-center">
