@@ -39,4 +39,7 @@ Rails.application.routes.draw do
   # My Quotes
   get 'wallet/:page', to: 'wallet#index', only: [:index], param: :page
 
+  # Security Investments
+  get 'safe_investiment', to: 'safe_investiment#index'
+
 end
