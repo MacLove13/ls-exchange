@@ -41,7 +41,7 @@ namespace :business do
   	end
     puts 'Valores de acoes atualizados'
 
-    BusinessValueHistory.where('created_at < ?', 3.days.ago).each do |model|
+    BusinessValueHistory.where('created_at < ?', 1.days.ago).each do |model|
       model.destroy
     end
     puts 'Marcações velhas removidas'
