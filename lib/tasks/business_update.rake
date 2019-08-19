@@ -39,7 +39,12 @@ namespace :business do
 
   		BusinessValueHistory.create(business_id: biz.id, value: value_final)
   	end
-  	puts 'Valores de acoes atualizados'
+    puts 'Valores de acoes atualizados'
+
+    BusinessValueHistory.where('created_at < ?', 3.days.ago).each do |model|
+      model.destroy
+    end
+    puts 'Marcações velhas removidas'
   end
 end
 
