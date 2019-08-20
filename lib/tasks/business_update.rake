@@ -9,7 +9,7 @@ namespace :business do
   		history = lastHistory.last
   		value = history.value
 
-  		value_max = value + rand * rand(12)
+  		value_max = value + rand * rand(15)
   		value_min = value - rand * rand(12)
 
   		# Critical Change
@@ -24,7 +24,7 @@ namespace :business do
   		# ===============================================================
   		# Negative
 
-  		critical_negative = rand(20).to_i
+  		critical_negative = rand(22).to_i
   		value_min = value_min - rand * rand(15) if critical_negative == 5
 
   		critical_negative_hard = rand(100).to_i
