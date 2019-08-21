@@ -3,11 +3,10 @@
     <div class='col-md-6 pt-4'>
       <h2>Registrar</h2>
 
-        <div class="alert alert-danger" role="alert">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
-        </div>
-        
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+      
+
         <hr>
         <div class="form-group">
           <%= f.label 'Nome de usuário:' %> <font size='1'>(Utilize o nome de seu personagem)</font><br />
