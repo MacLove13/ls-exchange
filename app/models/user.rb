@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+  # Admin level
+    #
+    # 3 - Acess edit user
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -24,12 +29,5 @@ class User < ApplicationRecord
 
   def admin?
     self.admin.present? && self.admin > 0
-  end
-
-  def admin
-    # 
-    #
-    # 3 - Acess edit user
-    self.admin
   end
 end
