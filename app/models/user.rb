@@ -25,4 +25,11 @@ class User < ApplicationRecord
   def admin?
     self.admin.present? && self.admin > 0
   end
+
+  def admin
+    # 
+    #
+    # 3 - Acess edit user
+    self.admin
+  end
 end

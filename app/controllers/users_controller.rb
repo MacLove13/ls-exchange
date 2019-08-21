@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def admin_edit
     return @Error = 'Você não tem acesso a esta página' if !user_signed_in? || !current_user.admin?
-    if !user_signed_in? || !current_user.admin?
+    if !user_signed_in? || !current_user.admin? || current_user.admin <  3
       redirect_to root_path
       return
     end 
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def update_user
     return @Error = 'Você não tem acesso a esta página' if !user_signed_in? || !current_user.admin?
-    if !user_signed_in? || !current_user.admin?
+    if !user_signed_in? || !current_user.admin? || current_user.admin <  3
       redirect_to root_path
       return
     end 
