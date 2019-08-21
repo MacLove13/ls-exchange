@@ -6,28 +6,68 @@ namespace :business do
   	business.each do |biz|
   		lastHistory = BusinessValueHistory.where(business_id: biz.id).order('id DESC').limit(1)
 
-  		history = lastHistory.last
-  		value = history.value
+      history = lastHistory.last
+      value = history.value
 
-  		value_max = value + rand * rand(15)
-  		value_min = value - rand * rand(12)
+      total_quotes = biz.purchased_quotes + biz.available_quotes
+      total_purchased_quotes = total_quotes - biz.available_quotes
+
+      if total_purchased_quotes > (total_quotes * 0.8)
+        rand_value_max = 7
+        rand_value_min = 7
+
+        positive_chance = 50
+        negative_chance = 40
+
+        hard_positive_chance = 150
+        hard_negative_chance = 130
+      elsif total_purchased_quotes > (total_quotes * 0.5)
+        rand_value_max = 10
+        rand_value_min = 10
+
+        positive_chance = 40
+        negative_chance = 30
+
+        hard_positive_chance = 120
+        hard_negative_chance = 100
+      elsif total_purchased_quotes > (total_quotes * 0.25)
+        rand_value_max = 14
+        rand_value_min = 14
+
+        positive_chance = 30
+        negative_chance = 25
+
+        hard_positive_chance = 100
+        hard_negative_chance = 90
+      else
+        rand_value_max = 17
+        rand_value_min = 17
+
+        positive_chance = 25
+        negative_chance = 22
+
+        hard_positive_chance = 90
+        hard_negative_chance = 80
+      end
+
+  		value_max = value + rand * rand(rand_value_max)
+  		value_min = value - rand * rand(rand_value_min)
 
   		# Critical Change
   		# ===============================================================
   		# Positive
-  		critical_positive = rand(25).to_i
+  		critical_positive = rand(positive_chance).to_i
   		value_max = value_max + rand * rand(15) if critical_positive == 5
 
-  		critical_positive_hard = rand(110).to_i
+  		critical_positive_hard = rand(hard_positive_chance).to_i
   		value_max = value_max + rand * rand(50) if critical_positive_hard == 10
 
   		# ===============================================================
   		# Negative
-
-  		critical_negative = rand(22).to_i
+  		critical_negative = rand(negative_chance).to_i
   		value_min = value_min - rand * rand(15) if critical_negative == 5
 
-  		critical_negative_hard = rand(100).to_i
+  		critical_negative_hard = rand(hard_negative_chance).to_i
   		value_min = value_min - rand * rand(50) if critical_negative_hard == 10
 
   		# Calcule final value and round
