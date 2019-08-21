@@ -9,7 +9,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, :cellphone presence: true
+  validates :name, :cellphone, presence: true
 
   def self.search(search)
     if search
