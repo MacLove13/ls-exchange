@@ -26,6 +26,11 @@
         <%= number_field_tag :blocked_money, @user.blocked_money, :step => "0.01", :class => 'form-control' %>
       </div>
 
+      <div class="form-group">
+        Admin:
+        <%= number_field_tag :admin, @user.admin, :class => 'form-control' %>
+      </div>
+
       <br/>
 
       <div class="actions">

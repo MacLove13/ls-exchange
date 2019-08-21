@@ -39,6 +39,7 @@ class UsersController < ApplicationController
     user.blocked_money = params[:blocked_money].to_i if params[:blocked_money]
     user.name = params[:name] if params[:name]
     user.email = params[:email] if params[:email]
+    user.admin = params[:admin] if params[:admin]
 
     user.save
 
