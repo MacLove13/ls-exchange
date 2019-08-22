@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
 
   before_action :set_raven_context
 
+  before_filter :update_current_user
+
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -10,6 +12,10 @@ class ApplicationController < ActionController::Base
   def set_raven_context
     Raven.user_context(id: session[:current_user_id]) # or anything else in session
     Raven.extra_context(params: params.to_unsafe_h, url: request.url)
+  end
+
+  def update_current_user
+    current_user.reload
   end
 
   protected
