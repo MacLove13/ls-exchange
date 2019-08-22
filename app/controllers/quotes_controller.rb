@@ -4,6 +4,8 @@ class QuotesController < ApplicationController
   def buy_quote
   	business = Business.find(params[:id])
 
+    current_user.reload
+
   	buy_quantity = params[:buy_quantity].to_i
   	buy_value = params[:buy_value].to_f
 
