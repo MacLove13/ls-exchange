@@ -25,9 +25,7 @@ class QuotesController < ApplicationController
       quantity: buy_quantity
     )
 
-    current_money = current_user.money
-    current_money = (current_money - total_price).round(2)
-    current_user.update_attribute(:money, current_money)
+    current_user.withdraw_money(total_price)
 
     avail_quotes = business.available_quotes - buy_quantity
     purch_quotes = business.purchased_quotes + buy_quantity
@@ -54,9 +52,7 @@ class QuotesController < ApplicationController
 
     total_value = quote.quantity * historyValue.value
 
-    current_money = current_user.money
-    current_money = (current_money + total_value).round(2)
-    current_user.update_attribute(:money, current_money)
+    current_user.give_money(total_value)
 
     @business_name = business.name
     @total_price = total_value

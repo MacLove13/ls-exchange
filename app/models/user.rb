@@ -30,4 +30,14 @@ class User < ApplicationRecord
   def admin?
     self.admin.present? && self.admin > 0
   end
+
+  def give_money(quantity)
+    money = self.money + quantity.round(2)
+    self.update(money: money)
+  end
+
+  def withdraw_money(quantity)
+    money = self.money - quantity.round(2)
+    self.update(money: money)
+  end
 end
