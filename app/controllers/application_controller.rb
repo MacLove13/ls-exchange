@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_raven_context
 
-  before_filter :update_current_user
+  before_action :update_current_user
 
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
