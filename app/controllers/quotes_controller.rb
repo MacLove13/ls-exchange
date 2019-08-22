@@ -4,8 +4,6 @@ class QuotesController < ApplicationController
   def buy_quote
   	business = Business.find(params[:id])
 
-    current_user.reload
-
   	buy_quantity = params[:buy_quantity].to_i
   	buy_value = params[:buy_value].to_f
 
@@ -29,10 +27,7 @@ class QuotesController < ApplicationController
 
     current_money = current_user.money
     current_money = (current_money - total_price).round(2)
-
     current_user.update_attribute(:money, current_money)
-
-    current_user.reload
 
     avail_quotes = business.available_quotes - buy_quantity
     purch_quotes = business.purchased_quotes + buy_quantity
@@ -59,8 +54,9 @@ class QuotesController < ApplicationController
 
     total_value = quote.quantity * historyValue.value
 
-    current_user.money = (current_user.money + total_value).round(2)
-    current_user.save
+    current_money = current_user.money
+    current_money = (current_money + total_value).round(2)
+    current_user.update_attribute(:money, current_money)
 
     @business_name = business.name
     @total_price = total_value
