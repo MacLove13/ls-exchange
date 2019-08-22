@@ -50,6 +50,8 @@ namespace :business do
         hard_negative_chance = 80
       end
 
+      rand_value_min = rand_value_min + 8
+
   		value_max = value + rand * rand(rand_value_max)
   		value_min = value - rand * rand(rand_value_min)
 
