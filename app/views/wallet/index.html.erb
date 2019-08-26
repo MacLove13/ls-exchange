@@ -40,7 +40,7 @@
                 <%= form_tag "/quote/sell_quote/#{quote.id}" do |f| %>
                   <%= hidden_field_tag :sell_value, quote.current_price %>
 
-                  <%= submit_tag "Vender por $#{price_to_sell}", :class => "btn btn-#{ @price.positive? :success : :danger } btn-sm" %>
+                  <%= submit_tag "Vender por $#{price_to_sell}", :class => "btn btn-#{ @price.positive? ? :success : :danger } btn-sm" %>
                 <% end %>
               </td>
               <td><%= link_to "Ver no mercado >>", "/business/#{quote.business_id}", :class => "btn btn-dark btn-sm" %> </td>
