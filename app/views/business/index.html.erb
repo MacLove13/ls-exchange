@@ -33,17 +33,25 @@
           
           <% if actual_price == 1 %>
             <tr class="text-center" style="background-color: #F8E0E0">
+              <td><%= business.initials %></td>
+              <td><%= business.name %></td>
+              <td><%= number_to_currency_br(action_value(valueHistory)) %></td>
+              <td> -- </td>
+              <td> -- </td>
+              <td> -- </td>
+              <td><%= link_to 'Mais detalhes >>', "../business/#{business.id}", :class => 'btn btn-dark btn-sm' %> </td>
           <% else %>
             <tr class="text-center">
+              <td><%= business.initials %></td>
+              <td><%= business.name %></td>
+              <td><%= number_to_currency_br(action_value(valueHistory)) %></td>
+              <td><%= number_to_currency_br(calculate_movimentation(valueHistory).round(2)) %></td>
+              <td><%= calculate_variation(valueHistory) %>% <%= define_icon(valueHistory) %></td>
+              <td><%= business.available_quotes %></td>
+              <td><%= link_to 'Mais detalhes >>', "../business/#{business.id}", :class => 'btn btn-dark btn-sm' %> </td>
           <% end %>
 
-            <td><%= business.initials %></td>
-            <td><%= business.name %></td>
-            <td><%= number_to_currency_br(action_value(valueHistory)) %></td>
-            <td><%= number_to_currency_br(calculate_movimentation(valueHistory).round(2)) %></td>
-            <td><%= calculate_variation(valueHistory) %>% <%= define_icon(valueHistory) %></td>
-            <td><%= business.available_quotes %></td>
-            <td><%= link_to 'Mais detalhes >>', "../business/#{business.id}", :class => 'btn btn-dark btn-sm' %> </td>
+            
           </tr>
           <% end %>
         </tbody>
