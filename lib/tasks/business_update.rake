@@ -55,7 +55,7 @@ namespace :business do
   		value_max = value + rand * rand(rand_value_max)
   		value_min = value - rand * rand(rand_value_min)
 
-  		value_max = value_max + 60
+  		value_max = value_max + 10
 
   		# Critical Change
   		# ===============================================================
