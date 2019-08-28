@@ -10,19 +10,23 @@ class AdminController < ApplicationController
     @total_quotes_purchased = 0
   	@total_gain = 0
     @total_quotes_price = 0
+    @total_bankrupt = 0
 
   	@quotes = Quote.all
 
   	@quotes.each do |quote|
 
-      next if quote.current_price == 1
+      lucro_total = 0
 
-  		lucro_total = 0
+      total_spend = (quote.purchased_value * quote.quantity)
+      actual_value = (quote.current_price * quote.quantity)
 
-  		total_spend = (quote.purchased_value * quote.quantity)
-    	actual_value = (quote.current_price * quote.quantity)
+      lucro_total = (actual_value - total_spend).round(2)
 
-  		lucro_total = (actual_value - total_spend).round(2)
+      if quote.current_price == 1
+        @total_bankrupt = (@total_bankrupt + lucro_total).round(2)
+        next
+      end
 
       @total_gain = (@total_gain + lucro_total).round(2)
       @total_quotes_purchased = @total_quotes_purchased + quote.quantity
