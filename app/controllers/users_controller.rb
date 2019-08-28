@@ -40,6 +40,7 @@ class UsersController < ApplicationController
     user.name = params[:name] if params[:name]
     user.email = params[:email] if params[:email]
     user.admin = params[:admin] if params[:admin]
+    user.cellphone = params[:cellphone] if params[:cellphone]
 
     user.save
 

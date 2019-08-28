@@ -27,6 +27,11 @@
       </div>
 
       <div class="form-group">
+        Celular:
+        <%= number_field_tag :cellphone, @user.cellphone, :class => 'form-control' %>
+      </div>
+
+      <div class="form-group">
         Admin:
         <%= number_field_tag :admin, @user.admin, :class => 'form-control' %>
       </div>
