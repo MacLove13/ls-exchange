@@ -21,7 +21,7 @@ class AdminController < ApplicationController
     admin_config.add_value_max = params[:max_value].to_i if params[:max_value]
     admin_config.add_value_min = params[:min_value].to_i if params[:min_value]
 
-    redirect_to '/admin/config'
+    redirect_to root_path
   end
 
   def dashboard
