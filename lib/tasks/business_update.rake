@@ -79,7 +79,7 @@ namespace :business do
   		value_final = rand * (value_max-value_min) + value_min
   		value_final = value_final.round(2)
 
-  		if value_final < 70
+  		if value_final < 80
   		  falencia = rand(10)
 
   		  value_final = 1 if falencia < 1
