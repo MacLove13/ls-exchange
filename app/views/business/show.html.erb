@@ -31,9 +31,9 @@
           Protecting your rights! America's First Choice in Domestic Ordinance!
 
           <% if last_history.value.round(2).to_i == 1 %>
-            <center>
+            <div class="alert alert-danger" role="alert">
               <h1>FALIDA</h1>
-            </center>
+            </div>
           <% end %>
         </div>
       </div>
@@ -179,7 +179,7 @@
                   <%= hidden_field_tag :buy_value, last_history.value %>
                 </div>
                 <div class="actions">
-                  <% if user_signed_in? %>
+                  <% if user_signed_in? && last_history.value.round(2).to_i != 1 %>
                     <%= submit_tag "Comprar", :class => 'btn btn-success float-right' %>
                   <% elsif last_history.value.round(2).to_i == 1 %>
                     <p style=" font-size: 2mm" >Esta empresa faliu.</p>
