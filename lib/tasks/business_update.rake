@@ -4,10 +4,12 @@ namespace :business do
   	business = Business.all
 
   	business.each do |biz|
-  		lastHistory = BusinessValueHistory.where(business_id: biz.id).order('id DESC').limit(1)
+  	  lastHistory = BusinessValueHistory.where(business_id: biz.id).order('id DESC').limit(1)
 
       history = lastHistory.last
       value = history.value
+
+      next if value == 1
 
       total_quotes = biz.purchased_quotes + biz.available_quotes
       total_purchased_quotes = total_quotes - biz.available_quotes
@@ -77,7 +79,9 @@ namespace :business do
   		value_final = rand * (value_max-value_min) + value_min
   		value_final = value_final.round(2)
 
-  		value_final = 50 if value_final < 50
+  		value_final = 1 if value_final < 40
+
+  		value_final = 50 if value_final != 1 && value_final < 50
 
   		BusinessValueHistory.create(business_id: biz.id, value: value_final)
   	end
