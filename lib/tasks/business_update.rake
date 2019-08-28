@@ -9,7 +9,10 @@ namespace :business do
       history = lastHistory.last
       value = history.value
 
-      next if value == 1
+      if value == 1
+        biz.available_quotes = 0
+        next
+      end
 
       total_quotes = biz.purchased_quotes + biz.available_quotes
       total_purchased_quotes = total_quotes - biz.available_quotes
