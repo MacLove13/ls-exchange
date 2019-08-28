@@ -182,11 +182,11 @@
                   <% if user_signed_in? && last_history.value.round(2).to_i != 1 %>
                     <%= submit_tag "Comprar", :class => 'btn btn-success float-right' %>
                   <% elsif last_history.value.round(2).to_i == 1 %>
-                    <span class="d-inline-block" tabindex="1" data-toggle="tooltip" title="Você não pode comprar açõe de uma empresa falida">
+                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Você não pode comprar açõe de uma empresa falida">
                       <%= submit_tag "Comprar", { :class => 'btn btn-success float-right', disabled: true } %>
                     </span>
                   <% else %>
-                    <span class="d-inline-block" tabindex="1" data-toggle="tooltip" title="Você precisa estar logado">
+                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Você precisa estar logado">
                       <%= submit_tag "Comprar", { :class => 'btn btn-success float-right', disabled: true } %>
                     </span>
                   <% end %>
