@@ -30,9 +30,10 @@
         <div class='col-md-12 mt-2'>
           Protecting your rights! America's First Choice in Domestic Ordinance!
 
-          <% if last_history.value.round(2) == 1 %>
-            <h1>FALIDA</h1>
-
+          <% if last_history.value.round(2).to_i == 1 %>
+            <center>
+              <h1>FALIDA</h1>
+            </center>
           <% end %>
         </div>
       </div>
@@ -180,7 +181,7 @@
                 <div class="actions">
                   <% if user_signed_in? %>
                     <%= submit_tag "Comprar", :class => 'btn btn-success float-right' %>
-                  <% elsif last_history.value.round(2) == 1 %>
+                  <% elsif last_history.value.round(2).to_i == 1 %>
                     <p style=" font-size: 2mm" >Esta empresa faliu.</p>
                     <%= submit_tag "Comprar", { :class => 'btn btn-success float-right', disabled: true } %>
                   <% else %>
@@ -202,7 +203,7 @@
                 <%= link_to "Gerenciar minhas ações >>", "/wallet/1", :class => "btn btn-secondary btn-sm" %>
 
                 <br>
-                <%= last_history.value.round(2) %>
+                <%= last_history.value.round(2).to_i %>
               </div>
             </div>
           <% end %>
