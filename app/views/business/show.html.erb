@@ -201,9 +201,7 @@
                 Você tem <%= current_user.business_quotes(@business.id).sum('quantity') %> cotas desta ação. <br/>
 
                 <%= link_to "Gerenciar minhas ações >>", "/wallet/1", :class => "btn btn-secondary btn-sm" %>
-
                 <br>
-                <%= last_history.value.round(2).to_i %>
               </div>
             </div>
           <% end %>
