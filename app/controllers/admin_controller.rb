@@ -9,6 +9,21 @@ class AdminController < ApplicationController
     @admin = Admin.find(1)
   end
 
+  def update_config_page
+    if !user_signed_in? || !current_user.admin?
+
+      redirect_to root_path
+      return
+    end
+
+    admin_config = Admin.find(1)
+
+    admin_config.add_value_max = params[:max_value].to_i if params[:max_value]
+    admin_config.add_value_min = params[:min_value].to_i if params[:min_value]
+
+    redirect_to '/admin/config'
+  end
+
   def dashboard
   	if !user_signed_in? || !current_user.admin?
 

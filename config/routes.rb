@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get 'admin/update_user/:id', to: redirect('/admin/users')
   get 'admin/wallet/:id', to: 'wallet#show'
   get 'admin/config', to: 'admin#config_page'
+  get 'admin/update_config', to: 'admin#update_config_page'
 
   # Buy quotes
   post 'quote/buy_quote/:id' => 'quotes#buy_quote'
