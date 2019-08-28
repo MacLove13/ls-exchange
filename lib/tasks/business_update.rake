@@ -55,7 +55,7 @@ namespace :business do
   		value_max = value + rand * rand(rand_value_max)
   		value_min = value - rand * rand(rand_value_min)
 
-  		value_max = value_max + 10
+  		# value_max = value_max + 10
 
   		# Critical Change
   		# ===============================================================
@@ -93,7 +93,7 @@ namespace :business do
   	end
     puts 'Valores de acoes atualizados'
 
-    BusinessValueHistory.where('created_at < ?', 1.days.ago).each do |model|
+    BusinessValueHistory.where('created_at < ? AND value != 1', 1.days.ago).each do |model|
       model.destroy
     end
     puts 'Marcações velhas removidas'
