@@ -9,4 +9,9 @@ module ApplicationHelper
     current_user.admin > 0
   end
 
+  def admin_level
+    return 0 if current_user.admin.nil?
+    current_user.admin
+  end
+
 end
