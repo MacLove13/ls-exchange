@@ -33,6 +33,8 @@ class AdminController < ApplicationController
       @total_quotes_price = (@total_quotes_price + (quote.quantity * quote.purchased_value)).round(2)
   	end
 
+    @total_bankrupt = @total_bankrupt.abs
+
   	@available_quotes = Business.sum('available_quotes')
   	purch = Business.sum('purchased_quotes')
   	total_quotes = @available_quotes + purch
