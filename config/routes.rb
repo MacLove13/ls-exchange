@@ -18,9 +18,10 @@ Rails.application.routes.draw do
 
   # Admin Control
   namespace :admin do
-    get 'dashboard'
-    get 'config'
+    get 'dashboard', to: 'admin#dashboard'
+    get 'config', to: 'admin#config'
   end
+
   get 'admin/users', to: 'users#index'
   get 'admin/find_user', to: 'users#index'
   get 'admin/user/:id', to: 'users#show'
