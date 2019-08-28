@@ -1,4 +1,15 @@
 class AdminController < ApplicationController
+  def config
+    if !user_signed_in? || !current_user.admin?
+
+      redirect_to root_path
+      return
+    end
+
+    admin_load = Admin.all
+    @admin = admin.last
+  end
+
   def dashboard
   	if !user_signed_in? || !current_user.admin?
 

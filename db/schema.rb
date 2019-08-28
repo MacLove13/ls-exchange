@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_21_224816) do
+ActiveRecord::Schema.define(version: 2019_08_28_222312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.integer "add_value_max"
+    t.integer "add_value_min"
+    t.integer "profit_quotes_sold"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "business_value_histories", force: :cascade do |t|
     t.integer "business_id"

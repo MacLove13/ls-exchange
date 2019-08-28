@@ -1,0 +1,25 @@
+
+  <div class="row" style="background-color: #FFF;">
+    <h3>Editando configs</h3>
+    <br/>
+
+    <%= form_tag "../update_config/#{@user.id}" do |f| %>
+
+      <div class="form-group">
+        Add max value:
+        <%= number_field_tag :max_value, @admin.add_value_max, :class => 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        Add min value:
+        <%= number_field_tag :min_value, @admin.add_value_min, :class => 'form-control' %>
+      </div>
+
+      <br/>
+
+      <div class="actions">
+        <%= submit_tag "Atualizar", :class => 'btn btn-success' %>
+      </div>
+    <% end %>
+    <br/>
+  </div>
