@@ -31,6 +31,7 @@
           <% if last_history.value.round(2).to_i == 1 %>
             <div class="alert alert-danger text-center" role="alert">
               <h1 class="text-center">FALIDA</h1>
+              Esta empresa faliu em <%= last_history.created_at.strftime('%d/%m/%Y') %>.
             </div>
           <% end %>
         </div>
