@@ -7,7 +7,7 @@ class AdminController < ApplicationController
     end
 
     admin_load = Admin.all
-    @admin = admin.last
+    @admin = admin_load.last
   end
 
   def dashboard
