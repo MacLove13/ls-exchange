@@ -15,6 +15,8 @@ class AdminController < ApplicationController
 
   	@quotes.each do |quote|
 
+      next if quote.current_price == 1
+
   		lucro_total = 0
 
   		total_spend = (quote.purchased_value * quote.quantity)
