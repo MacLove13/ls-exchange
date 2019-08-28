@@ -171,7 +171,7 @@
                 <div class="actions">
                   <% if user_signed_in? %>
                     <%= submit_tag "Comprar", :class => 'btn btn-success float-right' %>
-                  <% elsif last_history.value == 1 %>
+                  <% elsif last_history.value.to_i == 1 %>
                     <p style=" font-size: 2mm" >Esta empresa faliu.</p>
                     <%= submit_tag "Comprar", { :class => 'btn btn-success float-right', disabled: true } %>
                   <% else %>
