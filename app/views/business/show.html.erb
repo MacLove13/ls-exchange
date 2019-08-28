@@ -1,3 +1,9 @@
+<%
+  valuesHistory = @business.value_history.order('id DESC').limit(2).reverse
+  first = valuesHistory.first
+  last_history = valuesHistory.last
+%>
+
 <div class="container mt-4" style="background-color: #FFFFFF">
   <div class="row ml-1 mr-1">
     
@@ -23,6 +29,11 @@
       <div class="row">
         <div class='col-md-12 mt-2'>
           Protecting your rights! America's First Choice in Domestic Ordinance!
+
+          <% if last_history.value.round(2) == 1 %>
+            <h1>FALIDA</h1>
+
+          <% end %>
         </div>
       </div>
 
@@ -140,9 +151,7 @@
 
                 variation = calculate_variation(@business.value_history)
 
-                valuesHistory = @business.value_history.order('id DESC').limit(2).reverse
-                first = valuesHistory.first
-                last_history = valuesHistory.last
+                
               %>
               <b>Total de cotas:</b> <br/>
               <%= biz_total_quotes %> <br/><br/>
@@ -171,7 +180,7 @@
                 <div class="actions">
                   <% if user_signed_in? %>
                     <%= submit_tag "Comprar", :class => 'btn btn-success float-right' %>
-                  <% elsif last_history.value.to_i == 1 %>
+                  <% elsif last_history.value.round(2) == 1 %>
                     <p style=" font-size: 2mm" >Esta empresa faliu.</p>
                     <%= submit_tag "Comprar", { :class => 'btn btn-success float-right', disabled: true } %>
                   <% else %>
@@ -191,6 +200,9 @@
                 Você tem <%= current_user.business_quotes(@business.id).sum('quantity') %> cotas desta ação. <br/>
 
                 <%= link_to "Gerenciar minhas ações >>", "/wallet/1", :class => "btn btn-secondary btn-sm" %>
+
+                <br>
+                <%= last_history.value.round(2) %>
               </div>
             </div>
           <% end %>
