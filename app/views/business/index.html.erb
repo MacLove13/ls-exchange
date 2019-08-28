@@ -27,8 +27,16 @@
         </thead>
         <tbody>
           <% @business.each do |business| 
-            valueHistory = business.value_history %>
-          <tr class="text-center">
+            valueHistory = business.value_history
+            actual_price = action_value(valueHistory).round(2).to_i
+             %>
+          
+          <% if actual_price == 1 %>
+            <tr class="text-center" style="background-color: #F5A9A9">
+          <% else %>
+            <tr class="text-center">
+          <% end %>
+
             <td><%= business.initials %></td>
             <td><%= business.name %></td>
             <td><%= number_to_currency_br(action_value(valueHistory)) %></td>
