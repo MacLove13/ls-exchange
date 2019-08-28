@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  def config
+  def config_page
     if !user_signed_in? || !current_user.admin?
 
       redirect_to root_path

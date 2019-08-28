@@ -17,10 +17,7 @@ Rails.application.routes.draw do
   get 'informations/index'
 
   # Admin Control
-  namespace :admin do
-    get 'dashboard', to: 'admin#dashboard'
-  end
-
+  get 'admin/dashboard', to: 'admin#dashboard'
   get 'admin/users', to: 'users#index'
   get 'admin/find_user', to: 'users#index'
   get 'admin/user/:id', to: 'users#show'
@@ -28,7 +25,7 @@ Rails.application.routes.draw do
   post 'admin/update_user/:id' => 'users#update_user'
   get 'admin/update_user/:id', to: redirect('/admin/users')
   get 'admin/wallet/:id', to: 'wallet#show'
-  get 'admin/config', to: 'admin#config'
+  get 'admin/config', to: 'admin#config_page'
 
   # Buy quotes
   post 'quote/buy_quote/:id' => 'quotes#buy_quote'
