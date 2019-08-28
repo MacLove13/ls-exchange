@@ -62,7 +62,7 @@ class QuotesController < ApplicationController
 
     # =======
     # Profit
-    profit = sell_value - purchased_value
+    profit = sell_value - quote.purchased_value
 
     @admin.profit_quotes_sold = @admin.profit_quotes_sold + profit
     # =======
