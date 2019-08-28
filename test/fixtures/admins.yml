@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  add_value_max: 1
+  add_value_min: 1
+  profit_quotes_sold: 1
+
+two:
+  add_value_max: 1
+  add_value_min: 1
+  profit_quotes_sold: 1

@@ -61,26 +61,26 @@ namespace :business do
     # business = Business.create(name: 'Pissh', initials: 'PSS', available_quotes: quotes, purchased_quotes: 0)
     # create_history(business.id)
 
-    business = Business.create(name: 'American Coffe', initials: 'ACF', available_quotes: quotes, purchased_quotes: 0)
-    create_history(business.id)
+    # business = Business.create(name: 'American Coffe', initials: 'ACF', available_quotes: quotes, purchased_quotes: 0)
+    # create_history(business.id)
 
-    business = Business.create(name: 'IFruit', initials: 'IF', available_quotes: quotes, purchased_quotes: 0)
-    create_history(business.id, 4000)
+    # business = Business.create(name: 'IFruit', initials: 'IF', available_quotes: quotes, purchased_quotes: 0)
+    # create_history(business.id, 4000)
 
-    business = Business.create(name: 'SecuroServ', initials: 'SSV', available_quotes: quotes, purchased_quotes: 0)
-    create_history(business.id, 2500)
+    # business = Business.create(name: 'SecuroServ', initials: 'SSV', available_quotes: quotes, purchased_quotes: 0)
+    # create_history(business.id, 2500)
 
-    business = Business.create(name: 'Banco FLEECA', initials: 'BFL', available_quotes: quotes, purchased_quotes: 0)
-    create_history(business.id, 1000)
+    # business = Business.create(name: 'Banco FLEECA', initials: 'BFL', available_quotes: quotes, purchased_quotes: 0)
+    # create_history(business.id, 1000)
 
-    business = Business.create(name: 'Bean Machine', initials: 'BM', available_quotes: quotes, purchased_quotes: 0)
-    create_history(business.id, 1000)
+    # business = Business.create(name: 'Bean Machine', initials: 'BM', available_quotes: quotes, purchased_quotes: 0)
+    # create_history(business.id, 1000)
 
-    business = Business.create(name: 'Maze Bank', initials: 'MB', available_quotes: quotes, purchased_quotes: 0)
-    create_history(business.id, 1000)
+    # business = Business.create(name: 'Maze Bank', initials: 'MB', available_quotes: quotes, purchased_quotes: 0)
+    # create_history(business.id, 1000)
 
-    business = Business.create(name: 'Dynasty 8', initials: 'D8', available_quotes: quotes, purchased_quotes: 0)
-    create_history(business.id, 1000)
+    # business = Business.create(name: 'Dynasty 8', initials: 'D8', available_quotes: quotes, purchased_quotes: 0)
+    # create_history(business.id, 1000)
 
 
     p 'Business created'
