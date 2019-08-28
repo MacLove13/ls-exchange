@@ -6,8 +6,7 @@ class AdminController < ApplicationController
       return
     end
 
-    admin_load = Admin.all
-    @admin = admin_load.last
+    @admin = Admin.find(1)
   end
 
   def dashboard
@@ -24,6 +23,7 @@ class AdminController < ApplicationController
     @total_bankrupt = 0
 
   	@quotes = Quote.all
+    @admin = Admin.find(1)
 
   	@quotes.each do |quote|
 

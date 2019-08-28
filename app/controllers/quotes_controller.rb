@@ -40,6 +40,8 @@ class QuotesController < ApplicationController
   end
 
   def sell_quote
+    @admin = Admin.find(1)
+
     quote = Quote.find(params[:id])
     business = Business.find(quote.business_id)
     sell_value = params[:sell_value].to_f
@@ -57,6 +59,13 @@ class QuotesController < ApplicationController
     @business_name = business.name
     @total_price = total_value
     @sell_quantity = quote.quantity
+
+    # =======
+    # Profit
+    profit = sell_value - purchased_value
+
+    @admin.profit_quotes_sold = @admin.profit_quotes_sold + profit
+    # =======
 
     Rails.logger.info("#{current_user.name} vendeu #{quote.quantity} ações da #{business.name} (#{business.id}) por $#{sell_value} cada. Total: #{total_value}")
   

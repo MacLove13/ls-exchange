@@ -3,6 +3,8 @@ namespace :business do
   task :update => :environment do
   	business = Business.all
 
+    admin_config = Admin.find(1)
+
   	business.each do |biz|
   	  lastHistory = BusinessValueHistory.where(business_id: biz.id).order('id DESC').limit(1)
 
@@ -58,7 +60,8 @@ namespace :business do
   		value_max = value + rand * rand(rand_value_max)
   		value_min = value - rand * rand(rand_value_min)
 
-  		# value_max = value_max + 10
+  		value_max = value_max + admin_config.add_value_max if admin_config.add_value_max != 0
+      value_min = value_min + admin_config.add_value_min if admin_config.add_value_min != 0
 
   		# Critical Change
   		# ===============================================================
