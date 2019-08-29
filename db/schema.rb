@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_29_191441) do
+ActiveRecord::Schema.define(version: 2019_08_29_201750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_08_29_191441) do
     t.string "slogan"
     t.integer "available_quotes"
     t.integer "purchased_quotes"
+    t.boolean "bankrupt"
   end
 
   create_table "quotes", force: :cascade do |t|

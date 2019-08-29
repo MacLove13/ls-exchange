@@ -6,15 +6,15 @@ namespace :business do
     admin_config = Admin.find(1)
 
   	business.each do |biz|
-  	  lastHistory = BusinessValueHistory.where(business_id: biz.id).order('id DESC').limit(1)
+  	  lastHistory = BusinessValueHistory.where(business_id: biz.id, bankrupt: false).order('id DESC').limit(1)
+
+      if value == 1
+        biz.update_attributes(bankrupt: true, available_quotes: 0)
+        next
+      end
 
       history = lastHistory.last
       value = history.value
-
-      if value == 1
-        biz.available_quotes = 0
-        next
-      end
 
       total_quotes = biz.purchased_quotes + biz.available_quotes
       total_purchased_quotes = total_quotes - biz.available_quotes
@@ -88,10 +88,16 @@ namespace :business do
   		if value_final < 80
   		  falencia = rand(10)
 
-  		  value_final = 1 if falencia < 1
+  		  if falencia < 1
+          biz.update_attributes(bankrupt: true, available_quotes: 0)
+          value_final = 1 
+        end
   		end
 
-  		value_final = 1 if value_final < 40
+      if value_final < 40
+        biz.update_attributes(bankrupt: true, available_quotes: 0)
+    		value_final = 1
+      end
 
   		value_final = 50 if value_final != 1 && value_final < 50
 
@@ -99,7 +105,10 @@ namespace :business do
   	end
     puts 'Valores de acoes atualizados'
 
-    BusinessValueHistory.where('created_at < ? AND value != 1', 1.days.ago).each do |model|
+    BusinessValueHistory.where('created_at < ?', 1.days.ago).each do |model|
+      biz = Business.find(model.business_id)
+      next if biz.bankrupt == true
+
       model.destroy
     end
     puts 'Marcações velhas removidas'
