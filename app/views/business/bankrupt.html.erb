@@ -27,16 +27,14 @@
           <% @business.each do |business| 
             valueHistory = business.value_history
             actual_price = action_value(valueHistory).round(2).to_i
-             %>
-          
-            <% if actual_price == 1 %>
-              <tr class="text-center" style="background-color: #F8E0E0">
-                <td><%= business.initials %></td>
-                <td><%= business.name %></td>
-                <td><%= last_history(valueHistory).created_at.strftime('%d/%m/%Y') %></td>
-                <td><%= link_to 'Mais detalhes >>', "../business/#{business.id}", :class => 'btn btn-dark btn-sm' %> </td>
-              </tr>
-            <% end %>
+          %>
+        
+            <tr class="text-center" style="background-color: #F8E0E0">
+              <td><%= business.initials %></td>
+              <td><%= business.name %></td>
+              <td><%= last_history(valueHistory).created_at.strftime('%d/%m/%Y') %></td>
+              <td><%= link_to 'Mais detalhes >>', "../business/#{business.id}", :class => 'btn btn-dark btn-sm' %> </td>
+            </tr>
           <% end %>
         </tbody>
       </table>

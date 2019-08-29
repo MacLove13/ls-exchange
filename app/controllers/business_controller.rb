@@ -2,7 +2,7 @@ class BusinessController < ApplicationController
   skip_before_action :verify_authenticity_token
   
   def index
-  	@business = Business.order(:name).page(params[:page])
+  	@business = Business.where(bankrupt: nil).order(:name).page(params[:page])
 
   end
 
@@ -11,7 +11,7 @@ class BusinessController < ApplicationController
   end
 
   def bankrupt
-  	@business = Business.order(:name).page(params[:page])
-  	
+  	@business = Business.where(bankrupt: true).order(:name).page(params[:page])
+
   end
 end
