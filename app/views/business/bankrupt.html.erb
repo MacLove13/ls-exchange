@@ -33,7 +33,7 @@
               <tr class="text-center" style="background-color: #F8E0E0">
                 <td><%= business.initials %></td>
                 <td><%= business.name %></td>
-                <td><%= valueHistory.created_at.strftime('%d/%m/%Y') %></td>
+                <td><%= last_history(valueHistory).created_at.strftime('%d/%m/%Y') %></td>
                 <td><%= link_to 'Mais detalhes >>', "../business/#{business.id}", :class => 'btn btn-dark btn-sm' %> </td>
               </tr>
             <% end %>

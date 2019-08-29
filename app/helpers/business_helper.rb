@@ -129,6 +129,11 @@ module BusinessHelper
 		valuesHistory.value
 	end
 
+  def last_history(valueHistory)
+    valuesHistory = valueHistory.order('id DESC').limit(1).reverse
+    valuesHistory.last
+  end
+
   def biz_available_quotes
     @business.verify_available_quotes
   end
