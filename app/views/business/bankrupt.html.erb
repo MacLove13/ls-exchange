@@ -19,10 +19,7 @@
           <tr class="text-center">
             <th scope="col">Sigla</th>
             <th scope="col">Nome da companhia</th>
-            <th scope="col">Preço Atual</th>
-            <th scope="col">Movimentação</th>
-            <th scope="col">Variação</th>
-            <th scope="col">Cotas a venda</th>
+            <th scope="col">Falida em</th>
             <th scope="col">Acessar</th>
           </tr>
         </thead>
@@ -36,10 +33,7 @@
               <tr class="text-center" style="background-color: #F8E0E0">
                 <td><%= business.initials %></td>
                 <td><%= business.name %></td>
-                <td><%= number_to_currency_br(action_value(valueHistory)) %></td>
-                <td> -- </td>
-                <td> -- </td>
-                <td> -- </td>
+                <td><%= valueHistory.created_at.strftime('%d/%m/%Y') %></td>
                 <td><%= link_to 'Mais detalhes >>', "../business/#{business.id}", :class => 'btn btn-dark btn-sm' %> </td>
               </tr>
             <% end %>
