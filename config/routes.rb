@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # business
   get 'business/:id', to: 'business#show', param: :id
   get 'all_business/:page', to: 'business#index', only: [:index], param: :page
+  get 'bankrupt', to: 'business#bankrupt'
 
   # Other pages
   get 'landing_page/index'

@@ -9,4 +9,9 @@ class BusinessController < ApplicationController
   def show
   	@business = Business.find(params[:id])
   end
+
+  def bankrupt
+  	@business = Business.order(:name).page(params[:page])
+  	
+  end
 end

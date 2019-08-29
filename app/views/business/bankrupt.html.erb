@@ -4,7 +4,7 @@
     <div class='col-md-4'></div>
     <div class='col-md-4 text-center'><h4>Mercado de Ações</h4></div>
     <div class="col-md-4 text-right">
-      <%= link_to 'Falidas', '/bankrupt', :class => 'btn btn-danger pr-1' %>
+      <%= link_to 'Ativas', '/business/1', :class => 'btn btn-success pr-1' %>
       <% if user_signed_in? %>
       <%= link_to 'Minha ações', '/wallet/1', :class => 'btn btn-secondary' %>
       <% end %>
@@ -32,28 +32,17 @@
             actual_price = action_value(valueHistory).round(2).to_i
              %>
           
-          <% if actual_price == 1 %>
-            <tr class="text-center" style="background-color: #F8E0E0">
-              <td><%= business.initials %></td>
-              <td><%= business.name %></td>
-              <td><%= number_to_currency_br(action_value(valueHistory)) %></td>
-              <td> -- </td>
-              <td> -- </td>
-              <td> -- </td>
-              <td><%= link_to 'Mais detalhes >>', "../business/#{business.id}", :class => 'btn btn-dark btn-sm' %> </td>
-          <% else %>
-            <tr class="text-center">
-              <td><%= business.initials %></td>
-              <td><%= business.name %></td>
-              <td><%= number_to_currency_br(action_value(valueHistory)) %></td>
-              <td><%= number_to_currency_br(calculate_movimentation(valueHistory).round(2)) %></td>
-              <td><%= calculate_variation(valueHistory) %>% <%= define_icon(valueHistory) %></td>
-              <td><%= business.available_quotes %></td>
-              <td><%= link_to 'Mais detalhes >>', "../business/#{business.id}", :class => 'btn btn-dark btn-sm' %> </td>
-          <% end %>
-
-            
-          </tr>
+            <% if actual_price == 1 %>
+              <tr class="text-center" style="background-color: #F8E0E0">
+                <td><%= business.initials %></td>
+                <td><%= business.name %></td>
+                <td><%= number_to_currency_br(action_value(valueHistory)) %></td>
+                <td> -- </td>
+                <td> -- </td>
+                <td> -- </td>
+                <td><%= link_to 'Mais detalhes >>', "../business/#{business.id}", :class => 'btn btn-dark btn-sm' %> </td>
+              </tr>
+            <% end %>
           <% end %>
         </tbody>
       </table>
