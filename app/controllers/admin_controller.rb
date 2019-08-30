@@ -6,22 +6,15 @@ class AdminController < ApplicationController
       return
     end
 
+    @updated_configs = false
     @admin = Admin.find(1)
-  end
 
-  def update_config_page
-    if !user_signed_in? || !current_user.admin?
+    if params[:max_value]
+      @admin.add_value_max = params[:max_value].to_i if params[:max_value]
+      @admin.add_value_min = params[:min_value].to_i if params[:min_value]
 
-      redirect_to root_path
-      return
+      @updated_configs = true
     end
-
-    admin_config = Admin.find(1)
-
-    admin_config.add_value_max = params[:max_value].to_i if params[:max_value]
-    admin_config.add_value_min = params[:min_value].to_i if params[:min_value]
-
-    redirect_to root_path
   end
 
   def dashboard

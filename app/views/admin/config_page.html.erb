@@ -4,8 +4,16 @@
     <h3>Editando configs</h3>
   </div>
 
+  <% if @updated_configs %>
+    <div class='row pt-3 pb-3'>
+      <div class="alert alert-success text-center" role="alert">
+        Configurações atualizadas.
+      </div>
+    </div>
+  <% end %>
+
   <div class='row pt-3 pb-3'>
-    <%= form_tag "../admin/update_config" do |f| %>
+    <%= form_tag "../admin/config_page" do |f| %>
       <div class="form-group">
         Add max value:
         <%= number_field_tag :max_value, @admin.add_value_max, :class => 'form-control' %>
