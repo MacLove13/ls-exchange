@@ -8,13 +8,13 @@ namespace :business do
   	business.each do |biz|
   	  lastHistory = BusinessValueHistory.where(business_id: biz.id, bankrupt: false).order('id DESC').limit(1)
 
+      history = lastHistory.last
+      value = history.value
+
       if value == 1
         biz.update_attributes(bankrupt: true, available_quotes: 0)
         next
       end
-
-      history = lastHistory.last
-      value = history.value
 
       total_quotes = biz.purchased_quotes + biz.available_quotes
       total_purchased_quotes = total_quotes - biz.available_quotes
