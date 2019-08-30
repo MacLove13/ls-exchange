@@ -1,12 +1,12 @@
 namespace :business do
   desc 'Atualizar ações'
   task :update => :environment do
-  	business = Business.all
+  	business = Business.where(bankrupt: nil)
 
     admin_config = Admin.find(1)
 
   	business.each do |biz|
-  	  lastHistory = BusinessValueHistory.where(business_id: biz.id, bankrupt: nil).order('id DESC').limit(1)
+  	  lastHistory = BusinessValueHistory.where(business_id: biz.id).order('id DESC').limit(1)
 
       history = lastHistory.last
       value = history.value
