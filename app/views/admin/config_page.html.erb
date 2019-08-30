@@ -13,7 +13,7 @@
   <% end %>
 
   <div class='row pt-3 pb-3'>
-    <%= form_tag "../admin/config_page" do |f| %>
+    <%= form_tag "../admin/config" do |f| %>
       <div class="form-group">
         Add max value:
         <%= number_field_tag :max_value, @admin.add_value_max, :class => 'form-control' %>
