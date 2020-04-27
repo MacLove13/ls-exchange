@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'admin/find_user', to: 'users#index'
   get 'admin/user/:id', to: 'users#show'
   get 'admin/edit_user/:id', to: 'users#admin_edit', param: :id
+  get 'admin/delete_user/:id', to: 'users#admin_del', param: :id
   post 'admin/update_user/:id' => 'users#update_user'
   get 'admin/update_user/:id', to: redirect('/admin/users')
   get 'admin/wallet/:id', to: 'wallet#show'

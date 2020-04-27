@@ -26,6 +26,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def admin_del
+    return @Error = 'Você não tem acesso a esta página' if !user_signed_in? || !current_user.admin?
+    if !user_signed_in? || !current_user.admin? || current_user.admin <  3
+      redirect_to root_path
+      return
+    end 
+
+    @user = User.find(params[:id])
+    @user.destoy
+    redirect_to root_path
+  end
+
   def update_user
     return @Error = 'Você não tem acesso a esta página' if !user_signed_in? || !current_user.admin?
     if !user_signed_in? || !current_user.admin? || current_user.admin <  3
