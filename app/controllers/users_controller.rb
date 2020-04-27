@@ -33,8 +33,8 @@ class UsersController < ApplicationController
       return
     end 
 
-    @user = User.find(params[:id])
-    @user.destoy
+    user = User.find(params[:id])
+    user.delete
     redirect_to root_path
   end
 

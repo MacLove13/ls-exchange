@@ -1,4 +1,4 @@
 class SafeInvestment < ApplicationRecord
 
-	
+
 end

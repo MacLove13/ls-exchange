@@ -168,7 +168,16 @@
                   Quantidade a comprar: <br/>
 
                   <% if user_signed_in? %>
-                    <%= number_field_tag :buy_quantity, 0, min: 1, max: biz_available_quotes, :class => 'form-control' %>
+                    <input
+                        type="number"
+                        name="buy_quantity"
+                        id="buy_quantity"
+                        value="0"
+                        min="0"
+                        max="<%= biz_available_quotes %>"
+                        class="form-control"
+                        onchange="CalculePreview(<%= last_history.value %>, <%= biz_available_quotes %>)"
+                      />
                   <% else %>
                     <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Você precisa estar logado">
                       <%= number_field_tag :buy_quantity, 0, min: 1, max: biz_available_quotes, :class => 'form-control', disabled: true %>
@@ -179,7 +188,14 @@
                 </div>
                 <div class="actions">
                   <% if user_signed_in? && last_history.value.round(2).to_i != 1 %>
-                    <%= submit_tag "Comprar", :class => 'btn btn-success float-right' %>
+                    <div class="text-right"><b>Seu dinheiro: </b><span>
+                        <%= current_user.money ? number_to_currency_br(current_user.money) : '$0.00' %>
+                      </span>
+                    </div>
+                    <div class="text-right"><b>Total: </b>
+                      <span id="total-price">$0,00</span>
+                    </div>
+                    <%= submit_tag "Comprar", :class => 'btn btn-success float-right mt-2' %>
                   <% elsif last_history.value.round(2).to_i == 1 %>
                     <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Você não pode comprar açõe de uma empresa falida">
                       <%= submit_tag "Comprar", { :class => 'btn btn-success float-right', disabled: true } %>

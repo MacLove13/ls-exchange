@@ -11,7 +11,9 @@ default: &default
 
 development:
   <<: *default
-  database: db/development
+  # host: localhost
+  # database: db/development
+  url: postgres://aynyaknhhywund:47e051e4733c01027ccc41ff798874937f6f18698f55691ea490b8a883f0249b@ec2-107-21-120-104.compute-1.amazonaws.com:5432/ddf8v2bu2er5hg
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
