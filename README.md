@@ -1,4 +1,5 @@
 # LS Exchange
+A simple stock exchange simulator (which generates random values) set in the GTA universe.
 
 ## Charts
 - Source:
